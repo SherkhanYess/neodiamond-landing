@@ -12,27 +12,22 @@
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
     :root {
-      --navy-950: #060d1d;
-      --navy-900: #0b2040;
-      --navy-850: #0f2950;
-      --ice-500: #46b1e0;
-      --ice-400: #6fc4e9;
-      --champagne-400: #e9d3a5;
-      --champagne-500: #d8bd84;
-      --platinum-50: #f5f7fb;
-      --text-primary: #f5f8fd;
-      --text-secondary: rgba(238, 243, 252, 0.68);
-      --text-tertiary: rgba(238, 243, 252, 0.44);
-      --glass-fill: rgba(255, 255, 255, 0.06);
-      --glass-fill-strong: rgba(255, 255, 255, 0.11);
-      --glass-border: rgba(255, 255, 255, 0.14);
-      --glass-border-strong: rgba(255, 255, 255, 0.22);
-      --shadow-md: 0 8px 24px rgba(6, 13, 29, 0.40);
-      --shadow-lg: 0 18px 48px rgba(6, 13, 29, 0.48);
-      --glow-ice: 0 0 0 1px rgba(70, 177, 224, 0.35), 0 8px 32px rgba(70, 177, 224, 0.28);
-      --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+      --nd-ink-900: #071630;
+      --nd-ink-800: #0B2040;
+      --nd-ink-600: #1E3149;
+      --nd-ink-400: #5B81A1;
+      --nd-ink-200: #c2d1de;
+      --nd-rose-600: #C2657A;
+      --nd-rose-500: #E68FA5;
+      --nd-rose-400: #F0A9B8;
+      --nd-rose-200: #F8D4DC;
+      --nd-paper-000: #ffffff;
+      --nd-paper-050: #f7f5f3;
+      --nd-studio: radial-gradient(120% 90% at 50% 0%, #6A8EAC 0%, #40648A 45%, #1E3149 100%);
+      --text-inverse: #f7f5f3;
       --font-display: 'Jost', 'Century Gothic', system-ui, sans-serif;
       --font-sans: 'Manrope', -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
+      --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
     }
 
     html, body {
@@ -43,104 +38,78 @@
 
     body {
       font-family: var(--font-sans);
-      color: var(--text-primary);
-      background: var(--navy-950);
+      background: var(--nd-studio);
       min-height: 100dvh;
       display: flex;
       flex-direction: column;
-      align-items: center;
-      justify-content: center;
+      align-items: stretch;
       overflow-x: hidden;
+    }
+
+    /* ── Hero ── */
+    .hero {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-end;
       position: relative;
+      min-height: 100dvh;
+      padding-bottom: 0;
+      overflow: hidden;
     }
 
-    /* Background gradient */
-    body::before {
-      content: '';
-      position: fixed;
-      inset: 0;
-      background: radial-gradient(120% 120% at 50% 0%, #102a55 0%, #0b2040 42%, #060d1d 100%);
-      z-index: 0;
-    }
-
-    /* Subtle sparkle dots */
-    body::after {
-      content: '';
-      position: fixed;
-      inset: 0;
-      background-image:
-        radial-gradient(1px 1px at 20% 15%, rgba(255,255,255,0.35) 0%, transparent 100%),
-        radial-gradient(1px 1px at 75% 8%,  rgba(255,255,255,0.25) 0%, transparent 100%),
-        radial-gradient(1px 1px at 50% 25%, rgba(70,177,224,0.4) 0%, transparent 100%),
-        radial-gradient(1px 1px at 85% 35%, rgba(255,255,255,0.2) 0%, transparent 100%),
-        radial-gradient(1px 1px at 10% 45%, rgba(255,255,255,0.15) 0%, transparent 100%),
-        radial-gradient(1.5px 1.5px at 40% 60%, rgba(70,177,224,0.3) 0%, transparent 100%),
-        radial-gradient(1px 1px at 90% 70%, rgba(255,255,255,0.2) 0%, transparent 100%),
-        radial-gradient(1px 1px at 60% 85%, rgba(233,211,165,0.25) 0%, transparent 100%);
-      z-index: 0;
+    /* Ring image — fills upper portion */
+    .hero-ring {
+      position: absolute;
+      top: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: min(500px, 105vw);
+      max-width: none;
       pointer-events: none;
+      user-select: none;
+      filter: drop-shadow(0 40px 80px rgba(7, 22, 48, 0.55));
     }
 
-    .page {
+    /* Bottom card */
+    .hero-card {
       position: relative;
-      z-index: 1;
+      z-index: 2;
       width: 100%;
-      max-width: 420px;
-      padding: 40px 24px 48px;
+      background: var(--nd-paper-000);
+      border-radius: 28px 28px 0 0;
+      padding: 32px 24px 48px;
       display: flex;
       flex-direction: column;
       align-items: center;
       gap: 0;
+      box-shadow: 0 -8px 40px rgba(7, 22, 48, 0.25);
     }
 
-    /* Logo */
     .logo {
-      margin-bottom: 8px;
+      width: 130px;
+      margin-bottom: 20px;
     }
 
-    .logo-wordmark {
-      font-family: var(--font-display);
-      font-weight: 300;
-      font-size: 1.5rem;
-      letter-spacing: 0.34em;
-      text-transform: uppercase;
-      color: var(--text-primary);
-      text-indent: 0.34em;
-    }
-
-    /* Diamond icon */
-    .diamond-icon {
-      width: 64px;
-      height: 64px;
-      margin: 0 auto 28px;
-      filter: drop-shadow(0 0 16px rgba(70, 177, 224, 0.45));
-    }
-
-    /* Headline */
     .headline {
       font-family: var(--font-display);
       font-weight: 300;
-      font-size: clamp(1.75rem, 7vw, 2.25rem);
+      font-size: clamp(1.75rem, 7vw, 2.5rem);
       line-height: 1.08;
       letter-spacing: 0.02em;
       text-align: center;
-      color: var(--text-primary);
-      margin-bottom: 14px;
-    }
-
-    .headline em {
-      font-style: normal;
-      color: var(--champagne-400);
+      color: var(--nd-ink-800);
+      margin-bottom: 10px;
     }
 
     .subline {
-      font-family: var(--font-sans);
       font-size: 0.9375rem;
       font-weight: 400;
       line-height: 1.6;
-      color: var(--text-secondary);
+      color: var(--nd-ink-400);
       text-align: center;
-      margin-bottom: 40px;
+      margin-bottom: 32px;
       max-width: 300px;
     }
 
@@ -149,7 +118,7 @@
       width: 100%;
       display: flex;
       flex-direction: column;
-      gap: 14px;
+      gap: 12px;
     }
 
     .btn {
@@ -168,43 +137,36 @@
       cursor: pointer;
       transition: transform 200ms var(--ease-out), box-shadow 200ms var(--ease-out), background 150ms ease;
       -webkit-tap-highlight-color: transparent;
+      letter-spacing: -0.01em;
     }
 
-    .btn:active {
-      transform: scale(0.97);
-    }
+    .btn:active { transform: scale(0.97); }
 
-    /* Primary — ice blue */
+    /* Primary — rose */
     .btn-primary {
-      background: var(--ice-500);
-      color: #06182f;
-      box-shadow: 0 4px 20px rgba(70, 177, 224, 0.35);
+      background: var(--nd-rose-600);
+      color: #fff;
+      box-shadow: 0 4px 20px rgba(194, 101, 122, 0.38);
     }
 
     .btn-primary:hover {
-      background: var(--ice-400);
-      box-shadow: 0 6px 28px rgba(70, 177, 224, 0.45);
+      background: var(--nd-rose-500);
+      box-shadow: 0 6px 28px rgba(194, 101, 122, 0.5);
     }
 
-    /* Secondary — glass */
+    /* Secondary — ink outline */
     .btn-secondary {
-      background: var(--glass-fill);
-      color: var(--text-primary);
-      border: 1px solid var(--glass-border-strong);
-      backdrop-filter: blur(18px) saturate(140%);
-      -webkit-backdrop-filter: blur(18px) saturate(140%);
-      box-shadow: var(--shadow-md), inset 0 1px 0 rgba(255,255,255,0.12);
+      background: transparent;
+      color: var(--nd-ink-800);
+      border: 1.5px solid rgba(11, 32, 64, 0.22);
     }
 
     .btn-secondary:hover {
-      background: var(--glass-fill-strong);
-      border-color: rgba(255,255,255,0.28);
+      background: rgba(11, 32, 64, 0.04);
+      border-color: rgba(11, 32, 64, 0.38);
     }
 
-    .btn-icon {
-      flex-shrink: 0;
-      opacity: 0.9;
-    }
+    .btn-icon { flex-shrink: 0; }
 
     /* Divider */
     .divider {
@@ -212,6 +174,7 @@
       align-items: center;
       gap: 12px;
       width: 100%;
+      margin: 4px 0;
     }
 
     .divider::before,
@@ -219,106 +182,80 @@
       content: '';
       flex: 1;
       height: 1px;
-      background: rgba(255,255,255,0.1);
+      background: rgba(11, 32, 64, 0.1);
     }
 
     .divider span {
       font-size: 0.75rem;
-      color: var(--text-tertiary);
-      white-space: nowrap;
+      color: var(--nd-ink-400);
       font-family: var(--font-sans);
     }
 
-    /* Footer */
-    .footer {
-      margin-top: 44px;
+    /* Footer note */
+    .footer-note {
+      margin-top: 24px;
+      font-size: 0.6875rem;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--nd-ink-200);
       text-align: center;
-    }
-
-    .footer-text {
-      font-size: 0.75rem;
-      color: var(--text-tertiary);
-      letter-spacing: 0.05em;
       font-family: var(--font-sans);
     }
 
-    /* Diamond SVG */
-    .gem-svg {
-      animation: gem-float 4s ease-in-out infinite;
-    }
-
-    @keyframes gem-float {
-      0%, 100% { transform: translateY(0px); filter: drop-shadow(0 0 14px rgba(70,177,224,0.4)); }
-      50%       { transform: translateY(-6px); filter: drop-shadow(0 0 22px rgba(70,177,224,0.6)); }
+    /* Gradient fade over ring bottom */
+    .hero::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 260px;
+      background: linear-gradient(to bottom, transparent, var(--nd-paper-000));
+      z-index: 1;
+      pointer-events: none;
     }
   </style>
 </head>
 <body>
-  <div class="page">
+  <div class="hero">
+    <img
+      class="hero-ring"
+      src="assets/renders/ring-white-pink-hero.png"
+      alt="Neo Diamond кольцо"
+    />
 
-    <!-- Logo -->
-    <div class="logo">
-      <div class="logo-wordmark">Neo Diamond</div>
+    <div class="hero-card">
+      <img class="logo" src="assets/logo/neo-diamond-ink.png" alt="Neo Diamond" />
+
+      <h1 class="headline">Ваш вкус —<br>ваш смысл</h1>
+      <p class="subline">Ювелирная студия формата конструктор. Алматы.</p>
+
+      <div class="btn-group">
+        <a class="btn btn-primary" href="https://con.neodiamond.kz">
+          <svg class="btn-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/>
+          </svg>
+          Создать на конструкторе
+        </a>
+
+        <div class="divider"><span>или</span></div>
+
+        <a
+          class="btn btn-secondary"
+          href="https://wa.me/77766708505?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5%2C+%D1%85%D0%BE%D1%87%D1%83+%D0%BE%D1%82%D0%BF%D1%80%D0%B0%D0%B2%D0%B8%D1%82%D1%8C+%D1%81%D0%B2%D0%BE%D0%B9+%D0%B4%D0%B8%D0%B7%D0%B0%D0%B9%D0%BD+%E2%80%94+%D0%BF%D0%BE%D1%81%D1%87%D0%B8%D1%82%D0%B0%D0%B9%D1%82%D0%B5+%D0%BF%D0%BE%D0%B6%D0%B0%D0%BB%D1%83%D0%B9%D1%81%D1%82%D0%B0+%D1%81%D1%82%D0%BE%D0%B8%D0%BC%D0%BE%D1%81%D1%82%D1%8C"
+          target="_blank"
+          rel="noopener"
+        >
+          <svg class="btn-icon" width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/>
+          </svg>
+          Отправить свой дизайн
+        </a>
+      </div>
+
+      <p class="footer-note">Алматы · Украшения на заказ</p>
     </div>
-
-    <!-- Diamond icon -->
-    <div class="diamond-icon">
-      <svg class="gem-svg" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg" width="64" height="64">
-        <path d="M32 6L52 22L32 58L12 22L32 6Z" fill="url(#gem-fill)" stroke="rgba(70,177,224,0.5)" stroke-width="0.5"/>
-        <path d="M12 22H52L32 6L12 22Z" fill="url(#gem-top)" opacity="0.9"/>
-        <path d="M12 22L32 58L22 22H12Z" fill="rgba(6,24,47,0.6)"/>
-        <path d="M52 22L32 58L42 22H52Z" fill="rgba(70,177,224,0.15)"/>
-        <path d="M22 22L32 6L42 22H22Z" fill="rgba(255,255,255,0.12)"/>
-        <defs>
-          <linearGradient id="gem-fill" x1="32" y1="6" x2="32" y2="58" gradientUnits="userSpaceOnUse">
-            <stop offset="0%" stop-color="#a8d8f0"/>
-            <stop offset="40%" stop-color="#46b1e0"/>
-            <stop offset="100%" stop-color="#1d5a7a"/>
-          </linearGradient>
-          <linearGradient id="gem-top" x1="12" y1="14" x2="52" y2="22" gradientUnits="userSpaceOnUse">
-            <stop offset="0%" stop-color="rgba(255,255,255,0.35)"/>
-            <stop offset="100%" stop-color="rgba(255,255,255,0.08)"/>
-          </linearGradient>
-        </defs>
-      </svg>
-    </div>
-
-    <!-- Headline -->
-    <h1 class="headline">Украшение <em>вашей</em> мечты</h1>
-    <p class="subline">Создайте кольцо в онлайн-конструкторе или отправьте свой дизайн — рассчитаем стоимость за 10 секунд</p>
-
-    <!-- CTA buttons -->
-    <div class="btn-group">
-      <a
-        class="btn btn-primary"
-        href="https://con.neodiamond.kz"
-      >
-        <svg class="btn-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
-          <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/>
-        </svg>
-        Создать на конструкторе
-      </a>
-
-      <div class="divider"><span>или</span></div>
-
-      <a
-        class="btn btn-secondary"
-        href="https://wa.me/77766708505?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5%2C+%D1%85%D0%BE%D1%87%D1%83+%D0%BE%D1%82%D0%BF%D1%80%D0%B0%D0%B2%D0%B8%D1%82%D1%8C+%D1%81%D0%B2%D0%BE%D0%B9+%D0%B4%D0%B8%D0%B7%D0%B0%D0%B9%D0%BD+%E2%80%94+%D0%BF%D0%BE%D1%81%D1%87%D0%B8%D1%82%D0%B0%D0%B9%D1%82%D0%B5+%D0%BF%D0%BE%D0%B6%D0%B0%D0%BB%D1%83%D0%B9%D1%81%D1%82%D0%B0+%D1%81%D1%82%D0%BE%D0%B8%D0%BC%D0%BE%D1%81%D1%82%D1%8C"
-        target="_blank"
-        rel="noopener"
-      >
-        <svg class="btn-icon" width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
-          <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/>
-        </svg>
-        Отправить свой дизайн
-      </a>
-    </div>
-
-    <!-- Footer -->
-    <div class="footer">
-      <p class="footer-text">Ювелирная студия · Алматы</p>
-    </div>
-
   </div>
 </body>
 </html>
