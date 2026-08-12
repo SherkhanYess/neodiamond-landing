@@ -220,6 +220,35 @@
     }
     .btn-primary:hover::after { left: 160%; }
     .btn-primary:hover { opacity: 0.92; }
+    @keyframes btn-shine {
+      0%   { left: -100%; }
+      30%  { left: 160%; }
+      100% { left: 160%; }
+    }
+    .btn-primary--hero::after {
+      animation: btn-shine 3s ease-in-out infinite;
+    }
+    @keyframes scroll-arrow {
+      0%   { opacity: 0.3; transform: translateY(0); }
+      50%  { opacity: 1;   transform: translateY(7px); }
+      100% { opacity: 0.3; transform: translateY(0); }
+    }
+    .hero-scroll-hint {
+      position: absolute;
+      bottom: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 4;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 4px;
+      pointer-events: none;
+    }
+    .hero-scroll-hint svg {
+      animation: scroll-arrow 1.8s ease-in-out infinite;
+      color: rgba(255,255,255,0.7);
+    }
     .btn-secondary { background: transparent; color: var(--nd-ink-800); border: 1.5px solid rgba(11,32,64,.20); }
     .btn-secondary:hover { background: rgba(11,32,64,.04); border-color: rgba(11,32,64,.38); }
     .btn-primary--inv {
@@ -866,6 +895,9 @@
   <video class="hero-gif" src="assets/hero.mp4" autoplay muted loop playsinline></video>
   <div class="hero-top-fade"></div>
   <div class="hero-fade"></div>
+  <div class="hero-scroll-hint">
+    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+  </div>
 
   <div class="hero-card">
     <div class="card-hero">
@@ -873,7 +905,7 @@
       <div class="hero-gold-rule"></div>
       <p class="hero-utp-sub">Для тех, кто предпочитает<br>эксклюзивность вместо масс-маркета</p>
       <div class="btn-group">
-        <button class="btn btn-primary" onclick="showLeadForm()">
+        <button class="btn btn-primary btn-primary--hero" onclick="showLeadForm()">
           <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
           Создать на конструкторе
         </button>
