@@ -5,99 +5,103 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Neo Diamond — Ювелирная студия</title>
   <meta name="description" content="Индивидуальное украшение на базе готовых дизайнов. Для тех, кто предпочитает эксклюзивность вместо масс-маркета. Алматы · Астана." />
+  <meta property="og:title" content="Neo Diamond — Ювелирная студия-конструктор" />
+  <meta property="og:description" content="Создайте кольцо своей мечты из готовых дизайнов. Бриллианты, металл, оправа — всё под ваш вкус. Алматы · Астана." />
+  <meta property="og:image" content="https://neodiamond.kz/assets/renders/ring-white-pink-hero.png" />
+  <meta property="og:url" content="https://neodiamond.kz" />
+  <meta property="og:type" content="website" />
+  <meta property="og:locale" content="ru_RU" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Neo Diamond — Ювелирная студия-конструктор" />
+  <meta name="twitter:description" content="Создайте кольцо своей мечты из готовых дизайнов." />
+  <meta name="twitter:image" content="https://neodiamond.kz/assets/renders/ring-white-pink-hero.png" />
+  <meta name="theme-color" content="#0B2040" />
+  <link rel="icon" href="assets/renders/ring-white-pink-hero.png" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@300;400&family=Manrope:wght@400;500;600&family=JetBrains+Mono:wght@400&family=Cormorant+Garamond:ital,wght@1,300&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@300;400&family=Manrope:wght@400;500;600&family=JetBrains+Mono:wght@400&family=Cormorant+Garamond:ital,wght@1,300;1,400&display=swap" rel="stylesheet" />
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
     :root {
       --nd-ink-900: #071630;
       --nd-ink-800: #0B2040;
-      --nd-ink-700: #162f5a;
       --nd-ink-600: #1E3149;
       --nd-ink-400: #5B81A1;
       --nd-ink-200: #c2d1de;
-      --nd-ink-100: #e8eff5;
       --nd-paper-000: #ffffff;
       --nd-paper-050: #FAFBFC;
       --nd-paper-100: #F4F6F8;
+      --nd-gold-600: #9C7B45;
+      --nd-gold-500: #C4A177;
+      --nd-gold-400: #DCC29B;
+      --nd-gold-200: #EFE4D2;
       --nd-studio: radial-gradient(120% 90% at 50% 0%, #6A8EAC 0%, #40648A 45%, #1E3149 100%);
       --radius-sheet: 44px;
       --radius-pill: 999px;
       --radius-card: 20px;
       --radius-md: 14px;
       --shadow-sheet: 0 -8px 60px -12px rgba(7,22,48,.28);
-      --shadow-card: 0 2px 16px rgba(11,32,64,.08);
+      --shadow-card: 0 2px 16px rgba(11,32,64,.07);
       --font-display: 'Unbounded', system-ui, sans-serif;
       --font-body: 'Manrope', -apple-system, system-ui, sans-serif;
       --font-mono: 'JetBrains Mono', ui-monospace, monospace;
       --font-italic: 'Cormorant Garamond', 'Georgia', serif;
       --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
-      --ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
     }
 
-    html {
-      scroll-behavior: smooth;
-    }
-
-    html, body {
-      -webkit-font-smoothing: antialiased;
-      -moz-osx-font-smoothing: grayscale;
-    }
-
+    html { scroll-behavior: smooth; }
+    html, body { -webkit-font-smoothing: antialiased; }
     body {
       font-family: var(--font-body);
       background: var(--nd-paper-050);
       overflow-x: hidden;
     }
 
-    /* ═══════════════════════════════════════
-       HERO
-    ═══════════════════════════════════════ */
+    /* ═══════════════════════ HERO ═══════════════════════ */
     .hero {
       display: flex;
       flex-direction: column;
       align-items: center;
       justify-content: flex-end;
-      position: relative;
-      min-height: 100dvh;
+      position: sticky;
+      top: 0;
+      z-index: 1;
+      height: 100dvh;
       overflow: hidden;
       background: var(--nd-studio);
+      /* subtle scale-down as next section arrives */
+      transform-origin: center center;
+      transition: transform .05s linear;
     }
-
     .hero::before {
       content: '';
       position: absolute;
       inset: 0;
       background-image:
-        linear-gradient(rgba(255,255,255,0.09) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(255,255,255,0.09) 1px, transparent 1px);
+        linear-gradient(rgba(255,255,255,0.06) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,0.06) 1px, transparent 1px);
       background-size: 24px 24px;
       pointer-events: none;
       z-index: 0;
     }
-
     .hero-gif {
       position: absolute;
       top: -20px;
       left: 50%;
       transform: translateX(-50%);
-      width: min(520px, 108vw);
+      width: min(520px, 98vw);
+      height: min(520px, 98vw);
       pointer-events: none;
-      user-select: none;
-      filter: drop-shadow(0 48px 96px rgba(7, 22, 48, 0.60));
+      filter: drop-shadow(0 48px 96px rgba(7,22,48,.60));
       z-index: 1;
       transition: opacity 0.4s var(--ease-out), transform 0.4s var(--ease-out);
       border-radius: 50%;
       object-fit: cover;
     }
-
-    /* Fallback placeholder when GIF is missing */
     .hero-gif-placeholder {
       position: absolute;
-      top: 0;
-      left: 50%;
+      top: 0; left: 50%;
       transform: translateX(-50%);
       width: min(480px, 100vw);
       height: min(480px, 100vw);
@@ -106,17 +110,14 @@
       z-index: 1;
       pointer-events: none;
     }
-
     .hero-logo {
       position: absolute;
-      top: 32px;
-      left: 50%;
+      top: 32px; left: 50%;
       transform: translateX(-50%);
       z-index: 3;
       pointer-events: none;
     }
     .hero-logo img { height: 28px; width: auto; opacity: 0.92; }
-
     .hero-fade {
       position: absolute;
       bottom: 0; left: 0; right: 0;
@@ -126,61 +127,68 @@
       pointer-events: none;
       transition: opacity 0.3s;
     }
-
     .hero-card {
-      position: relative;
-      z-index: 3;
+      position: relative; z-index: 3;
       width: 100%;
       background: var(--nd-paper-000);
       border-radius: var(--radius-sheet) var(--radius-sheet) 0 0;
       box-shadow: var(--shadow-sheet);
       overflow: hidden;
     }
-
-    .card-hero, .card-form {
-      padding: 36px 24px 52px;
+    .card-hero {
+      padding: 40px 28px 56px;
       display: flex;
       flex-direction: column;
       align-items: center;
-      gap: 0;
-      transition: opacity 0.3s var(--ease-out), transform 0.35s var(--ease-out);
+      transition: opacity 0.3s var(--ease-out);
     }
-    .card-form {
-      display: none;
-      align-items: stretch;
+    /* Lead form modal */
+    .lead-modal {
+      display: none; position: fixed; inset: 0; z-index: 200;
+      background: rgba(11,32,64,.55); backdrop-filter: blur(4px);
+      align-items: center; justify-content: center; padding: 16px;
+    }
+    .lead-modal.is-open { display: flex; }
+    .lead-modal-inner {
+      background: var(--nd-paper-000); border-radius: 24px;
+      box-shadow: 0 24px 64px rgba(11,32,64,.22);
+      width: 100%; max-width: 420px;
+      max-height: 90vh; overflow-y: auto;
+      padding: 40px 28px 48px; position: relative;
     }
 
-    body.show-form .card-hero  { display: none; }
-    body.show-form .card-form  { display: flex; }
-    body.show-form .hero-gif   { opacity: 0.25; transform: translateX(-50%) scale(0.92) translateY(-30px); }
-    body.show-form .hero-fade  { opacity: 0; }
-
-    .headline-italic {
-      font-family: var(--font-italic);
-      font-style: italic;
+    /* Hero UTP */
+    .hero-utp-main {
+      font-family: var(--font-display);
       font-weight: 300;
-      font-size: clamp(2rem, 8.5vw, 2.75rem);
-      line-height: 1.1;
+      font-size: clamp(1.25rem, 5vw, 1.75rem);
+      line-height: 1.15;
+      letter-spacing: -0.02em;
       text-align: center;
       color: var(--nd-ink-800);
-      margin-bottom: 10px;
+      margin-bottom: 16px;
     }
-    .hero-utp {
-      font-family: var(--font-body);
-      font-size: clamp(0.8125rem, 2.5vw, 0.9375rem);
+    .hero-gold-rule {
+      width: 40px;
+      height: 1.5px;
+      background: var(--nd-gold-500);
+      border-radius: 1px;
+      margin: 0 auto 20px;
+      opacity: 0.8;
+    }
+    .hero-utp-sub {
+      font-family: var(--font-italic);
+      font-style: italic;
       font-weight: 400;
-      line-height: 1.6;
+      font-size: clamp(1.25rem, 4.5vw, 1.625rem);
+      line-height: 1.3;
       text-align: center;
-      color: var(--nd-ink-400);
-      max-width: 300px;
-      margin-bottom: 28px;
+      color: var(--nd-ink-600);
+      margin-bottom: 36px;
     }
-    .btn-group {
-      width: 100%;
-      display: flex;
-      flex-direction: column;
-      gap: 12px;
-    }
+
+    /* Buttons */
+    .btn-group { width: 100%; display: flex; flex-direction: column; gap: 12px; }
     .btn {
       display: flex;
       align-items: center;
@@ -195,839 +203,657 @@
       text-decoration: none;
       border: none;
       cursor: pointer;
-      transition: transform 180ms var(--ease-out), opacity 120ms ease, background 150ms ease;
+      transition: transform 180ms var(--ease-out), opacity 120ms ease;
       -webkit-tap-highlight-color: transparent;
       letter-spacing: -0.01em;
     }
     .btn:active { transform: scale(0.97); }
     .btn-primary {
-      background: var(--nd-ink-800);
-      color: #fff;
-      box-shadow: 0 6px 28px rgba(11, 32, 64, 0.32);
+      background: var(--nd-ink-800); color: #fff;
+      box-shadow: 0 6px 28px rgba(11,32,64,.28);
+      position: relative; overflow: hidden;
     }
-    .btn-primary:hover { opacity: 0.88; }
-    .btn-secondary {
-      background: transparent;
-      color: var(--nd-ink-800);
-      border: 1.5px solid rgba(11, 32, 64, 0.22);
+    .btn-primary::after {
+      content: '';
+      position: absolute;
+      top: 0; left: -100%;
+      width: 60%; height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255,255,255,.12), transparent);
+      transition: left .55s var(--ease-out);
+      pointer-events: none;
     }
-    .btn-secondary:hover { background: rgba(11, 32, 64, 0.04); border-color: rgba(11, 32, 64, 0.4); }
-
-    /* Inverted buttons for dark sections */
+    .btn-primary:hover::after { left: 160%; }
+    .btn-primary:hover { opacity: 0.92; }
+    .btn-secondary { background: transparent; color: var(--nd-ink-800); border: 1.5px solid rgba(11,32,64,.20); }
+    .btn-secondary:hover { background: rgba(11,32,64,.04); border-color: rgba(11,32,64,.38); }
     .btn-primary--inv {
-      background: #fff;
-      color: var(--nd-ink-800);
-      box-shadow: 0 6px 28px rgba(0,0,0,0.20);
+      background: #fff; color: var(--nd-ink-800);
+      box-shadow: 0 6px 28px rgba(0,0,0,.18);
+      position: relative; overflow: hidden;
     }
-    .btn-primary--inv:hover { opacity: 0.92; }
-    .btn-secondary--inv {
-      background: transparent;
-      color: rgba(255,255,255,0.88);
-      border: 1.5px solid rgba(255,255,255,0.30);
+    .btn-primary--inv::after {
+      content: '';
+      position: absolute;
+      top: 0; left: -100%;
+      width: 60%; height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(196,161,119,.18), transparent);
+      transition: left .55s var(--ease-out);
+      pointer-events: none;
     }
-    .btn-secondary--inv:hover { background: rgba(255,255,255,0.08); border-color: rgba(255,255,255,0.55); }
+    .btn-primary--inv:hover::after { left: 160%; }
+    .btn-primary--inv:hover { opacity: 0.95; }
+    .btn-secondary--inv { background: transparent; color: rgba(255,255,255,.88); border: 1.5px solid rgba(255,255,255,.28); }
+    .btn-secondary--inv:hover { background: rgba(255,255,255,.08); border-color: rgba(255,255,255,.5); }
+    .divider { display: flex; align-items: center; gap: 12px; width: 100%; }
+    .divider::before, .divider::after { content: ''; flex: 1; height: 1px; background: rgba(11,32,64,.10); }
+    .divider span { font-size: .75rem; color: var(--nd-ink-400); }
+    .divider--inv::before, .divider--inv::after { background: rgba(255,255,255,.14); }
+    .divider--inv span { color: rgba(255,255,255,.35); }
 
-    .divider {
-      display: flex; align-items: center; gap: 12px; width: 100%;
-    }
-    .divider::before, .divider::after {
-      content: ''; flex: 1; height: 1px; background: rgba(11, 32, 64, 0.10);
-    }
-    .divider span { font-size: 0.75rem; color: var(--nd-ink-400); }
-    .divider--inv::before, .divider--inv::after { background: rgba(255,255,255,0.14); }
-    .divider--inv span { color: rgba(255,255,255,0.40); }
-
-    .footer-note {
-      margin-top: 28px;
-      font-family: var(--font-mono);
-      font-size: 0.625rem;
-      letter-spacing: 0.2em;
-      text-transform: uppercase;
-      color: var(--nd-ink-200);
-      text-align: center;
-    }
-
-    /* Lead Form */
+    /* Lead form */
     .form-back {
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      background: none;
-      border: none;
-      cursor: pointer;
-      color: var(--nd-ink-400);
-      font-family: var(--font-body);
-      font-size: 0.875rem;
-      padding: 0;
-      margin-bottom: 28px;
-      -webkit-tap-highlight-color: transparent;
+      display: inline-flex; align-items: center; gap: 6px;
+      background: none; border: none; cursor: pointer;
+      color: var(--nd-ink-400); font-family: var(--font-body);
+      font-size: .875rem; padding: 0; margin-bottom: 28px;
       align-self: flex-start;
+      -webkit-tap-highlight-color: transparent;
     }
     .form-back:hover { color: var(--nd-ink-800); }
     .form-title {
-      font-family: var(--font-display);
-      font-weight: 300;
-      font-size: clamp(1.5rem, 6vw, 2rem);
-      line-height: 1.1;
-      letter-spacing: -0.02em;
-      color: var(--nd-ink-800);
-      margin-bottom: 6px;
+      font-family: var(--font-display); font-weight: 300;
+      font-size: clamp(1.5rem,6vw,2rem); line-height: 1.1;
+      letter-spacing: -0.02em; color: var(--nd-ink-800); margin-bottom: 6px;
     }
-    .form-sub {
-      font-size: 0.875rem;
-      color: var(--nd-ink-400);
-      line-height: 1.55;
-      margin-bottom: 28px;
-    }
+    .form-sub { font-size: .875rem; color: var(--nd-ink-400); line-height: 1.55; margin-bottom: 28px; }
     .form-fields { display: flex; flex-direction: column; gap: 14px; width: 100%; }
     .form-input {
-      width: 100%;
-      padding: 15px 18px;
-      border: 1.5px solid rgba(11,32,64,0.16);
-      border-radius: 16px;
-      font-family: var(--font-body);
-      font-size: 16px;
-      color: var(--nd-ink-800);
-      background: var(--nd-paper-050);
-      outline: none;
-      -webkit-appearance: none;
-      transition: border-color 0.2s;
+      width: 100%; padding: 15px 18px;
+      border: 1.5px solid rgba(11,32,64,.16); border-radius: 16px;
+      font-family: var(--font-body); font-size: 16px;
+      color: var(--nd-ink-800); background: var(--nd-paper-050);
+      outline: none; -webkit-appearance: none; transition: border-color .2s;
     }
     .form-input:focus { border-color: var(--nd-ink-800); background: #fff; }
     .form-input::placeholder { color: var(--nd-ink-200); }
     .form-phone-row {
-      display: flex;
-      align-items: center;
-      gap: 0;
-      border: 1.5px solid rgba(11,32,64,0.16);
-      border-radius: 16px;
-      background: var(--nd-paper-050);
-      transition: border-color 0.2s;
-      overflow: hidden;
+      display: flex; align-items: center;
+      border: 1.5px solid rgba(11,32,64,.16); border-radius: 16px;
+      background: var(--nd-paper-050); overflow: hidden; transition: border-color .2s;
     }
     .form-phone-row:focus-within { border-color: var(--nd-ink-800); background: #fff; }
-    .form-dial {
-      padding: 15px 0 15px 18px;
-      font-size: 16px;
-      font-family: var(--font-body);
-      color: var(--nd-ink-400);
-      flex-shrink: 0;
-    }
+    .form-dial { padding: 15px 0 15px 18px; font-size: 16px; font-family: var(--font-body); color: var(--nd-ink-400); flex-shrink: 0; }
     .form-phone-input {
-      flex: 1;
-      padding: 15px 18px 15px 6px;
-      border: none;
-      background: transparent;
-      font-family: var(--font-body);
-      font-size: 16px;
-      color: var(--nd-ink-800);
-      outline: none;
-      -webkit-appearance: none;
+      flex: 1; padding: 15px 18px 15px 6px;
+      border: none; background: transparent; font-family: var(--font-body);
+      font-size: 16px; color: var(--nd-ink-800); outline: none; -webkit-appearance: none;
     }
     .form-phone-input::placeholder { color: var(--nd-ink-200); }
     .form-timing-label {
-      font-family: var(--font-display);
-      font-size: 0.625rem;
-      font-weight: 400;
-      letter-spacing: 0.18em;
-      text-transform: uppercase;
-      color: var(--nd-ink-400);
-      margin-top: 4px;
+      font-family: var(--font-display); font-size: .625rem; font-weight: 400;
+      letter-spacing: .18em; text-transform: uppercase; color: var(--nd-ink-400); margin-top: 4px;
     }
     .form-pills { display: flex; flex-wrap: wrap; gap: 8px; }
     .form-pill {
-      padding: 11px 18px;
-      border-radius: var(--radius-pill);
-      border: 1.5px solid rgba(11,32,64,0.16);
-      background: transparent;
-      color: var(--nd-ink-400);
-      font-family: var(--font-body);
-      font-size: 0.875rem;
-      cursor: pointer;
-      transition: background 0.15s, border-color 0.15s, color 0.15s;
-      -webkit-tap-highlight-color: transparent;
-      white-space: nowrap;
+      padding: 11px 18px; border-radius: var(--radius-pill);
+      border: 1.5px solid rgba(11,32,64,.16); background: transparent;
+      color: var(--nd-ink-400); font-family: var(--font-body);
+      font-size: .875rem; cursor: pointer;
+      transition: background .15s, border-color .15s, color .15s;
+      -webkit-tap-highlight-color: transparent; white-space: nowrap;
     }
-    .form-pill:hover { background: rgba(11,32,64,0.04); border-color: rgba(11,32,64,0.3); }
+    .form-pill:hover { background: rgba(11,32,64,.04); }
     .form-pill:active { transform: scale(0.97); }
     .form-pill.is-active { background: var(--nd-ink-800); border-color: var(--nd-ink-800); color: #fff; font-weight: 600; }
-    .form-error {
-      font-size: 0.8125rem;
-      color: #A64155;
-      padding: 10px 14px;
-      background: rgba(166,65,85,0.08);
-      border-radius: 10px;
-      display: none;
+    .month-picker { margin-top: 8px; }
+    .month-picker-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 6px; }
+    .month-btn {
+      padding: 9px 4px; border-radius: 10px; border: 1.5px solid rgba(11,32,64,.14);
+      background: transparent; color: var(--nd-ink-400); font-family: var(--font-body);
+      font-size: .8125rem; cursor: pointer; text-align: center;
+      transition: background .15s, border-color .15s, color .15s;
+      -webkit-tap-highlight-color: transparent;
     }
+    .month-btn:hover { background: rgba(11,32,64,.04); }
+    .month-btn.is-active { background: var(--nd-ink-800); border-color: var(--nd-ink-800); color: #fff; font-weight: 600; }
+    .form-error { font-size: .8125rem; color: #A64155; padding: 10px 14px; background: rgba(166,65,85,.08); border-radius: 10px; display: none; }
     .form-error.visible { display: block; }
     .form-submit {
-      width: 100%;
-      padding: 18px 24px;
-      margin-top: 8px;
-      border: none;
-      border-radius: var(--radius-pill);
-      background: var(--nd-ink-800);
-      color: #fff;
-      font-family: var(--font-body);
-      font-size: 1rem;
-      font-weight: 600;
-      cursor: pointer;
-      transition: opacity 0.2s, transform 0.15s;
-      -webkit-tap-highlight-color: transparent;
-      letter-spacing: -0.01em;
+      width: 100%; padding: 18px 24px; margin-top: 8px;
+      border: none; border-radius: var(--radius-pill);
+      background: var(--nd-ink-800); color: #fff;
+      font-family: var(--font-body); font-size: 1rem; font-weight: 600;
+      cursor: pointer; transition: opacity .2s, transform .15s;
+      -webkit-tap-highlight-color: transparent; letter-spacing: -0.01em;
     }
-    .form-submit:hover { opacity: 0.88; }
+    .form-submit:hover { opacity: .88; }
     .form-submit:active { transform: scale(0.97); }
-    .form-submit:disabled { opacity: 0.4; cursor: not-allowed; }
+    .form-submit:disabled { opacity: .4; cursor: not-allowed; }
 
-    /* ═══════════════════════════════════════
-       SHARED SECTION PRIMITIVES
-    ═══════════════════════════════════════ */
-    .nd-section {
-      width: 100%;
-    }
-    .nd-section-inner {
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 72px 24px;
-    }
-    .nd-eyebrow {
-      font-family: var(--font-mono);
-      font-size: 0.6875rem;
-      letter-spacing: 0.18em;
-      text-transform: uppercase;
-      color: var(--nd-ink-400);
-      margin-bottom: 14px;
-      display: block;
-    }
+    /* ═══════════════════════ SHARED ═══════════════════════ */
+    .nd-section { width: 100%; }
+    .nd-section-inner { max-width: 1200px; margin: 0 auto; padding: 80px 24px; }
+
     .nd-section-title {
       font-family: var(--font-display);
       font-weight: 300;
       font-size: clamp(1.75rem, 5vw, 2.5rem);
-      line-height: 1.08;
+      line-height: 1.1;
       letter-spacing: -0.02em;
       color: var(--nd-ink-800);
-      margin-bottom: 48px;
+      margin-bottom: 40px;
     }
 
-    /* CTA pair — reusable component */
+    .nd-gold-rule {
+      width: 32px; height: 1.5px;
+      background: var(--nd-gold-500);
+      border-radius: 1px;
+      margin-bottom: 24px;
+    }
+
     .cta-pair {
-      display: flex;
-      flex-direction: column;
-      gap: 12px;
-      margin-top: 48px;
-      width: 100%;
-      max-width: 420px;
+      display: flex; flex-direction: column;
+      gap: 12px; margin-top: 48px;
+      width: 100%; max-width: 440px;
     }
 
-    /* Scroll reveal */
     @media (prefers-reduced-motion: no-preference) {
       .reveal {
         opacity: 0;
         transform: translateY(28px);
-        transition: opacity 0.65s var(--ease-out), transform 0.65s var(--ease-out);
+        filter: blur(6px);
+        transition: opacity .7s var(--ease-out), transform .7s var(--ease-out), filter .7s var(--ease-out);
       }
-      .reveal.is-visible { opacity: 1; transform: none; }
-      .reveal-delay-1 { transition-delay: 0.10s; }
-      .reveal-delay-2 { transition-delay: 0.20s; }
-      .reveal-delay-3 { transition-delay: 0.30s; }
-      .reveal-delay-4 { transition-delay: 0.40s; }
+      .reveal.is-visible { opacity: 1; transform: none; filter: blur(0); }
+      .reveal-d1 { transition-delay: .10s; }
+      .reveal-d2 { transition-delay: .20s; }
+      .reveal-d3 { transition-delay: .30s; }
     }
 
-    /* ═══════════════════════════════════════
-       SECTION: PAIN
-    ═══════════════════════════════════════ */
+    /* ═══════════════════════ PAIN SECTION ═══════════════════════ */
     .nd-pain {
       background: var(--nd-ink-800);
       position: relative;
-      overflow: hidden;
-    }
-    .nd-pain::before {
-      content: '';
-      position: absolute;
-      inset: 0;
-      background-image:
-        linear-gradient(rgba(255,255,255,0.05) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(255,255,255,0.05) 1px, transparent 1px);
-      background-size: 24px 24px;
-      pointer-events: none;
+      z-index: 2;
+      border-radius: 32px 32px 0 0;
+      box-shadow: 0 -16px 60px rgba(7,22,48,.35);
     }
     .nd-pain .nd-section-inner { position: relative; z-index: 1; }
-    .nd-pain .nd-eyebrow { color: rgba(255,255,255,0.45); }
-    .nd-pain .nd-section-title {
-      color: #fff;
-      font-family: var(--font-italic);
-      font-style: italic;
-      font-size: clamp(1.5rem, 4.5vw, 2.25rem);
-    }
+    .nd-pain .nd-section-title { color: #fff; }
 
-    .pain-grid {
-      display: grid;
-      grid-template-columns: 1fr;
-      gap: 16px;
-    }
-
-    .pain-card {
-      background: rgba(255,255,255,0.06);
-      border: 1px solid rgba(255,255,255,0.10);
-      border-radius: var(--radius-card);
-      padding: 28px 24px;
+    .pain-list {
       display: flex;
       flex-direction: column;
-      gap: 14px;
+      border: 1px solid rgba(255,255,255,0.10);
+      border-radius: var(--radius-card);
+      overflow: hidden;
     }
 
-    .pain-card-num {
-      font-family: var(--font-mono);
-      font-size: 0.6875rem;
-      letter-spacing: 0.14em;
-      color: rgba(255,255,255,0.30);
-      text-transform: uppercase;
+    .pain-item {
+      border-bottom: 1px solid rgba(255,255,255,0.08);
     }
+    .pain-item:last-child { border-bottom: none; }
 
-    .pain-card-title {
+    .pain-trigger {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      padding: 24px 28px;
+      background: rgba(255,255,255,0.04);
+      border: none;
+      cursor: pointer;
+      text-align: left;
+      transition: background 0.2s;
+      -webkit-tap-highlight-color: transparent;
+    }
+    .pain-trigger:hover { background: rgba(255,255,255,0.07); }
+
+    .pain-trigger-text {
       font-family: var(--font-display);
       font-weight: 300;
-      font-size: clamp(1rem, 3vw, 1.125rem);
-      line-height: 1.25;
-      color: #fff;
+      font-size: clamp(0.9375rem, 2.5vw, 1.0625rem);
+      line-height: 1.35;
+      color: rgba(255,255,255,0.92);
       letter-spacing: -0.01em;
     }
 
-    .pain-card-text {
-      font-size: 0.9375rem;
-      line-height: 1.65;
-      color: rgba(255,255,255,0.68);
+    .pain-icon {
+      width: 30px; height: 30px;
+      border-radius: 50%;
+      border: 1.5px solid rgba(255,255,255,0.22);
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0;
+      color: var(--nd-gold-400);
+      transition: transform 0.3s var(--ease-out), border-color 0.2s;
+    }
+    .pain-icon svg { transition: transform 0.3s var(--ease-out); }
+
+    .pain-item.is-open .pain-trigger { background: rgba(255,255,255,0.07); }
+    .pain-item.is-open .pain-icon { border-color: var(--nd-gold-500); }
+    .pain-item.is-open .pain-icon svg { transform: rotate(45deg); }
+    .pain-item.is-open {
+      box-shadow: inset 3px 0 0 var(--nd-gold-500);
     }
 
-    /* Solution block within pain section */
+    .pain-body {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.4s var(--ease-out);
+    }
+    .pain-body-inner {
+      padding: 4px 28px 28px;
+    }
+    .pain-body-text {
+      font-size: 1rem;
+      line-height: 1.75;
+      color: rgba(255,255,255,0.58);
+    }
+
+    /* Solution block */
     .pain-solution {
-      margin-top: 56px;
-      padding-top: 56px;
-      border-top: 1px solid rgba(255,255,255,0.10);
-    }
-
-    .pain-solution-badge {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      padding: 6px 14px;
-      border-radius: var(--radius-pill);
-      background: rgba(255,255,255,0.08);
-      border: 1px solid rgba(255,255,255,0.14);
-      font-family: var(--font-mono);
-      font-size: 0.625rem;
-      letter-spacing: 0.16em;
-      text-transform: uppercase;
-      color: rgba(255,255,255,0.55);
-      margin-bottom: 20px;
+      margin-top: 48px;
+      padding: 40px 32px;
+      background: rgba(196,161,119,0.09);
+      border: 1px solid rgba(196,161,119,0.28);
+      border-radius: var(--radius-card);
     }
 
     .pain-solution-title {
       font-family: var(--font-display);
       font-weight: 300;
-      font-size: clamp(1.5rem, 4.5vw, 2rem);
-      line-height: 1.1;
+      font-size: clamp(1.375rem, 4vw, 1.875rem);
+      line-height: 1.15;
       letter-spacing: -0.02em;
-      color: #fff;
+      color: var(--nd-gold-400);
       margin-bottom: 20px;
     }
 
     .pain-solution-text {
       font-size: 1rem;
-      line-height: 1.7;
-      color: rgba(255,255,255,0.72);
-      max-width: 600px;
+      line-height: 1.75;
+      color: rgba(255,255,255,0.65);
     }
+    .pain-solution-text + .pain-solution-text { margin-top: 14px; }
 
-    .pain-solution-text + .pain-solution-text { margin-top: 16px; }
-
-    .nd-pain .cta-pair .divider::before,
-    .nd-pain .cta-pair .divider::after { background: rgba(255,255,255,0.14); }
-    .nd-pain .cta-pair .divider span   { color: rgba(255,255,255,0.35); }
-
-    /* ═══════════════════════════════════════
-       SECTION: PROCESS
-    ═══════════════════════════════════════ */
+    /* ═══════════════════════ PROCESS ═══════════════════════ */
     .nd-process {
       background: var(--nd-paper-000);
       border-top: 1px solid rgba(11,32,64,0.07);
+      position: relative;
+      z-index: 2;
     }
 
     .process-steps {
       display: flex;
       flex-direction: column;
-      gap: 0;
       position: relative;
     }
-
-    /* Vertical connecting line */
     .process-steps::before {
       content: '';
       position: absolute;
-      left: 23px;
-      top: 48px;
-      bottom: 48px;
+      left: 23px; top: 48px; bottom: 48px;
       width: 2px;
       background: repeating-linear-gradient(
         to bottom,
-        rgba(11,32,64,0.15) 0px,
-        rgba(11,32,64,0.15) 6px,
-        transparent 6px,
-        transparent 12px
+        rgba(196,161,119,0.45) 0px, rgba(196,161,119,0.45) 5px,
+        transparent 5px, transparent 11px
       );
     }
 
-    .process-step {
+    .process-item {
       display: grid;
       grid-template-columns: 48px 1fr;
       gap: 20px;
-      padding: 24px 0;
     }
-    .process-step + .process-step {
-      border-top: 1px solid rgba(11,32,64,0.06);
-    }
+    .process-item + .process-item { margin-top: 8px; }
 
-    .process-step-num {
-      width: 48px;
-      height: 48px;
+    .process-num {
+      width: 48px; height: 48px;
       border-radius: 50%;
       background: var(--nd-ink-800);
       color: #fff;
-      font-family: var(--font-display);
+      font-family: var(--font-mono);
       font-size: 0.75rem;
-      font-weight: 400;
-      display: flex;
-      align-items: center;
-      justify-content: center;
+      display: flex; align-items: center; justify-content: center;
       flex-shrink: 0;
-      position: relative;
-      z-index: 1;
+      position: relative; z-index: 1;
     }
 
-    .process-step-body {}
-
-    .process-step-title {
+    .process-summary {
+      padding: 14px 0 10px;
+    }
+    .process-title {
       font-family: var(--font-display);
       font-weight: 300;
-      font-size: 1rem;
+      font-size: clamp(1rem, 2.8vw, 1.125rem);
       line-height: 1.3;
       color: var(--nd-ink-800);
       letter-spacing: -0.01em;
-      margin-bottom: 8px;
+      margin-bottom: 12px;
     }
 
-    .process-step-text {
-      font-size: 0.9375rem;
-      line-height: 1.6;
-      color: var(--nd-ink-400);
-    }
-
-    .process-step-icon {
-      margin-top: 14px;
-      display: inline-flex;
+    .process-toggle {
+      display: flex;
       align-items: center;
       gap: 8px;
-      font-family: var(--font-mono);
-      font-size: 0.625rem;
-      letter-spacing: 0.14em;
-      text-transform: uppercase;
-      color: var(--nd-ink-400);
-      opacity: 0.7;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 0;
+      font-family: var(--font-body);
+      font-size: 0.875rem;
+      font-weight: 600;
+      color: var(--nd-gold-600);
+      -webkit-tap-highlight-color: transparent;
+      transition: color 0.15s;
     }
-    .process-step-icon svg { opacity: 0.6; }
+    .process-toggle:hover { color: var(--nd-gold-500); }
+    .process-toggle-icon { transition: transform 0.3s var(--ease-out); display: flex; align-items: center; }
+    .process-item.is-open .process-toggle-icon { transform: rotate(45deg); }
 
-    /* ═══════════════════════════════════════
-       SECTION: PERKS
-    ═══════════════════════════════════════ */
+    .process-body {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.4s var(--ease-out);
+    }
+    .process-body-inner {
+      padding: 12px 0 20px;
+      font-size: 0.9375rem;
+      line-height: 1.7;
+      color: var(--nd-ink-400);
+    }
+
+    .process-divider {
+      grid-column: 1 / -1;
+      height: 1px;
+      background: rgba(11,32,64,0.06);
+      margin: 8px 0;
+    }
+
+    /* ═══════════════════════ PERKS ═══════════════════════ */
     .nd-perks {
       background: var(--nd-paper-100);
       border-top: 1px solid rgba(11,32,64,0.07);
+      position: relative;
+      z-index: 2;
     }
 
     .perks-grid {
       display: grid;
       grid-template-columns: 1fr;
-      gap: 16px;
+      gap: 14px;
     }
 
     .perk-card {
       background: var(--nd-paper-000);
       border: 1px solid rgba(11,32,64,0.08);
       border-radius: var(--radius-card);
-      padding: 28px 24px 24px;
+      padding: 28px;
       box-shadow: var(--shadow-card);
       display: flex;
       flex-direction: column;
-      gap: 16px;
+      gap: 14px;
+      transition: transform .35s var(--ease-out), box-shadow .35s var(--ease-out), border-color .35s;
+      will-change: transform;
+    }
+    @media (hover: hover) {
+      .perk-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 12px 40px rgba(11,32,64,.11), 0 0 0 1px rgba(196,161,119,.28);
+        border-color: rgba(196,161,119,.32);
+      }
     }
 
-    .perk-icon {
-      width: 48px;
-      height: 48px;
-      border-radius: 14px;
-      background: var(--nd-ink-800);
+    .perk-header {
       display: flex;
-      align-items: center;
-      justify-content: center;
+      align-items: flex-start;
+      gap: 18px;
+    }
+    .perk-icon {
+      width: 48px; height: 48px;
+      border-radius: 14px;
+      background: var(--nd-gold-200);
+      border: 1px solid rgba(156,123,69,0.22);
+      display: flex; align-items: center; justify-content: center;
       flex-shrink: 0;
     }
-    .perk-icon svg { color: #fff; }
+    .perk-icon svg { color: var(--nd-gold-600); }
 
     .perk-title {
       font-family: var(--font-display);
       font-weight: 400;
       font-size: 0.9375rem;
-      line-height: 1.35;
+      line-height: 1.4;
       color: var(--nd-ink-800);
       letter-spacing: -0.01em;
+      padding-top: 4px;
     }
 
     .perk-text {
-      font-size: 0.9rem;
-      line-height: 1.65;
+      font-size: 0.9375rem;
+      line-height: 1.7;
       color: var(--nd-ink-400);
     }
 
-    /* Infographic elements inside perk cards */
     .perk-pills {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 8px;
-      margin-top: 4px;
+      display: flex; flex-wrap: wrap; gap: 8px;
     }
     .perk-pill {
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
+      display: inline-flex; align-items: center; gap: 5px;
       padding: 7px 14px;
       border-radius: var(--radius-pill);
-      background: var(--nd-paper-100);
-      border: 1px solid rgba(11,32,64,0.10);
-      font-size: 0.8125rem;
-      font-weight: 600;
-      color: var(--nd-ink-800);
+      background: var(--nd-gold-200);
+      border: 1px solid rgba(156,123,69,0.22);
+      font-size: 0.8125rem; font-weight: 600;
+      color: var(--nd-gold-600);
       white-space: nowrap;
-    }
-    .perk-pill--accent {
-      background: rgba(11,32,64,0.07);
-      border-color: rgba(11,32,64,0.15);
     }
 
     .perk-stat {
-      display: flex;
-      align-items: baseline;
-      gap: 6px;
-      margin-top: 4px;
+      display: flex; align-items: baseline; gap: 6px;
     }
     .perk-stat-num {
-      font-family: var(--font-display);
-      font-weight: 300;
-      font-size: 3rem;
-      line-height: 1;
-      color: var(--nd-ink-800);
-      letter-spacing: -0.03em;
+      font-family: var(--font-display); font-weight: 300;
+      font-size: 3rem; line-height: 1;
+      color: var(--nd-ink-800); letter-spacing: -0.03em;
     }
     .perk-stat-unit {
-      font-family: var(--font-mono);
-      font-size: 0.875rem;
-      color: var(--nd-ink-400);
-      letter-spacing: 0.04em;
+      font-family: var(--font-mono); font-size: 0.8125rem;
+      color: var(--nd-gold-600); letter-spacing: 0.04em;
     }
 
     .perk-principles {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 10px;
-      margin-top: 4px;
+      display: grid; grid-template-columns: 1fr 1fr; gap: 10px;
     }
     .perk-principle {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 8px;
-      padding: 16px 12px;
+      display: flex; flex-direction: column; align-items: center; gap: 8px;
+      padding: 16px 10px;
       border-radius: var(--radius-md);
-      background: var(--nd-paper-100);
-      border: 1px solid rgba(11,32,64,0.08);
+      background: var(--nd-gold-200);
+      border: 1px solid rgba(156,123,69,0.18);
       text-align: center;
     }
-    .perk-principle-label {
-      font-size: 0.8125rem;
-      font-weight: 600;
-      color: var(--nd-ink-800);
+    .perk-principle svg { color: var(--nd-gold-600); }
+    .perk-principle-label { font-size: 0.8125rem; font-weight: 600; color: var(--nd-gold-600); }
+
+    /* Merged care + service block */
+    .perk-care-list {
+      display: flex; flex-direction: column; gap: 10px;
     }
-    .perk-infinity {
-      display: flex;
-      align-items: center;
-      gap: 16px;
-      margin-top: 4px;
-      padding: 16px 18px;
+    .perk-care-item {
+      display: flex; align-items: center; gap: 12px;
+      padding: 14px 16px;
       background: var(--nd-paper-100);
       border-radius: var(--radius-md);
-      border: 1px solid rgba(11,32,64,0.08);
+      border: 1px solid rgba(11,32,64,0.07);
     }
-    .perk-infinity-sym {
-      font-family: var(--font-display);
-      font-size: 2.25rem;
-      font-weight: 300;
-      color: var(--nd-ink-800);
-      line-height: 1;
-      flex-shrink: 0;
+    .perk-care-dot {
+      width: 8px; height: 8px; border-radius: 50%;
+      background: var(--nd-gold-500); flex-shrink: 0;
     }
-    .perk-infinity-list {
-      display: flex;
-      flex-direction: column;
-      gap: 4px;
+    .perk-care-text {
+      font-size: 0.875rem; font-weight: 600; color: var(--nd-ink-800); line-height: 1.4;
     }
-    .perk-infinity-item {
-      font-size: 0.8125rem;
-      font-weight: 600;
-      color: var(--nd-ink-600);
-      display: flex;
-      align-items: center;
-      gap: 7px;
-    }
-    .perk-infinity-item::before {
-      content: '';
-      display: block;
-      width: 5px;
-      height: 5px;
-      border-radius: 50%;
-      background: var(--nd-ink-800);
-      flex-shrink: 0;
+    .perk-care-badge {
+      display: inline-flex; align-items: center; gap: 8px;
+      padding: 9px 16px; border-radius: var(--radius-md);
+      background: var(--nd-gold-200);
+      border: 1px solid rgba(156,123,69,0.22);
+      font-size: 0.8125rem; font-weight: 600;
+      color: var(--nd-gold-600);
     }
 
-    .perk-service-badge {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      padding: 10px 16px;
-      border-radius: var(--radius-md);
-      background: rgba(11,32,64,0.05);
-      border: 1px solid rgba(11,32,64,0.10);
-      font-size: 0.875rem;
-      font-weight: 600;
-      color: var(--nd-ink-800);
-      margin-top: 4px;
-    }
-
-    /* ═══════════════════════════════════════
-       SECTION: SOCIAL
-    ═══════════════════════════════════════ */
-    .nd-social {
-      background: var(--nd-paper-000);
-      border-top: 1px solid rgba(11,32,64,0.07);
-    }
-    .nd-social .nd-section-title { margin-bottom: 32px; }
-
-    .social-row {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
-      margin-bottom: 20px;
-    }
-
-    .social-row-label {
-      font-family: var(--font-mono);
-      font-size: 0.625rem;
-      letter-spacing: 0.14em;
-      text-transform: uppercase;
-      color: var(--nd-ink-400);
-      margin-bottom: 12px;
-      display: block;
-    }
-
-    .social-link {
-      display: inline-flex;
-      align-items: center;
-      gap: 9px;
-      padding: 12px 20px;
-      border-radius: var(--radius-pill);
-      border: 1.5px solid rgba(11,32,64,0.15);
-      background: transparent;
-      color: var(--nd-ink-800);
-      font-family: var(--font-body);
-      font-size: 0.9375rem;
-      font-weight: 600;
-      text-decoration: none;
-      transition: background 0.15s, border-color 0.15s, transform 0.12s;
-      -webkit-tap-highlight-color: transparent;
-    }
-    .social-link:hover {
-      background: rgba(11,32,64,0.04);
-      border-color: rgba(11,32,64,0.30);
-      transform: translateY(-1px);
-    }
-    .social-link:active { transform: scale(0.97); }
-
-    .social-link--address {
-      background: rgba(11,32,64,0.04);
-      border-color: rgba(11,32,64,0.12);
-    }
-
-    /* ═══════════════════════════════════════
-       SECTION: FINAL CTA
-    ═══════════════════════════════════════ */
+    /* ═══════════════════════ FINAL CTA ═══════════════════════ */
     .nd-final {
-      background: var(--nd-ink-800);
+      background: var(--nd-ink-900);
       position: relative;
+      z-index: 2;
       overflow: hidden;
     }
     .nd-final::before {
       content: '';
       position: absolute;
-      inset: 0;
-      background-image:
-        linear-gradient(rgba(255,255,255,0.05) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(255,255,255,0.05) 1px, transparent 1px);
-      background-size: 24px 24px;
+      top: 0; left: 50%; transform: translateX(-50%);
+      width: 600px; height: 600px;
+      background: radial-gradient(ellipse at 50% 0%, rgba(196,161,119,0.12) 0%, transparent 70%);
       pointer-events: none;
     }
     .nd-final .nd-section-inner {
-      position: relative;
-      z-index: 1;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      text-align: center;
+      position: relative; z-index: 1;
+      display: flex; flex-direction: column; align-items: center; text-align: center;
+      padding-top: 96px; padding-bottom: 96px;
     }
-    .nd-final .nd-eyebrow { color: rgba(255,255,255,0.40); }
-    .nd-final-title {
+    .nd-final-tagline {
       font-family: var(--font-italic);
       font-style: italic;
       font-weight: 300;
-      font-size: clamp(2rem, 7vw, 3rem);
-      line-height: 1.1;
-      color: #fff;
-      margin-bottom: 12px;
+      font-size: clamp(2.5rem, 8vw, 4.5rem);
+      line-height: 1.05;
+      color: var(--nd-gold-400);
+      margin-bottom: 28px;
+      letter-spacing: -0.01em;
     }
-    .nd-final-sub {
-      font-family: var(--font-display);
-      font-weight: 300;
-      font-size: clamp(0.625rem, 2vw, 0.75rem);
-      letter-spacing: 0.18em;
-      text-transform: uppercase;
-      color: rgba(255,255,255,0.40);
-      margin-bottom: 0;
+    .nd-final-close {
+      font-family: var(--font-body);
+      font-size: clamp(1rem, 2.5vw, 1.125rem);
+      line-height: 1.65;
+      color: rgba(255,255,255,0.52);
+      max-width: 460px;
+      margin-bottom: 48px;
     }
-    .nd-final .cta-pair {
-      align-items: stretch;
+    /* Trust row */
+    .nd-final-trust {
+      display: flex; flex-wrap: wrap; justify-content: center; gap: 10px;
+      margin-bottom: 44px;
+      width: 100%;
     }
+    .nd-final-trust-chip {
+      display: inline-flex; align-items: center; gap: 8px;
+      padding: 10px 18px;
+      border-radius: var(--radius-pill);
+      border: 1px solid rgba(196,161,119,0.22);
+      background: rgba(196,161,119,0.07);
+      font-family: var(--font-body);
+      font-size: 0.875rem; font-weight: 600;
+      color: var(--nd-gold-400);
+      white-space: nowrap;
+    }
+    .nd-final-trust-chip svg { color: var(--nd-gold-500); flex-shrink: 0; }
+    .nd-final .nd-gold-rule { margin: 0 auto 36px; }
+    .nd-final .cta-pair { align-items: stretch; margin-top: 0; }
     .nd-final .cta-pair .divider::before,
     .nd-final .cta-pair .divider::after { background: rgba(255,255,255,0.14); }
-    .nd-final .cta-pair .divider span   { color: rgba(255,255,255,0.35); }
+    .nd-final .cta-pair .divider span { color: rgba(255,255,255,0.35); }
 
-    /* ═══════════════════════════════════════
-       FOOTER
-    ═══════════════════════════════════════ */
+    /* ═══════════════════════ FOOTER ═══════════════════════ */
     .nd-footer {
       background: var(--nd-ink-900);
-      padding: 24px;
+      padding: 56px 24px 36px;
+      position: relative;
+      z-index: 2;
+    }
+    .nd-footer-inner {
+      max-width: 1200px; margin: 0 auto;
+      display: flex; flex-direction: column; gap: 40px;
+    }
+    .nd-footer-top {
+      display: flex; flex-direction: column; gap: 32px;
+    }
+    .footer-logo img { height: 24px; width: auto; opacity: 0.7; }
+
+    .footer-col-label {
+      font-family: var(--font-mono);
+      font-size: 0.625rem; letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.28); margin-bottom: 14px; display: block;
+    }
+    .footer-links { display: flex; flex-wrap: wrap; gap: 10px; }
+    .footer-link {
+      display: inline-flex; align-items: center; gap: 8px;
+      padding: 10px 16px;
+      border-radius: var(--radius-pill);
+      border: 1px solid rgba(255,255,255,0.12);
+      background: rgba(255,255,255,0.04);
+      color: rgba(255,255,255,0.72);
+      font-family: var(--font-body); font-size: 0.9375rem; font-weight: 500;
+      text-decoration: none;
+      transition: background .15s, border-color .15s;
+      -webkit-tap-highlight-color: transparent;
+    }
+    .footer-link:hover { background: rgba(255,255,255,0.08); border-color: rgba(255,255,255,0.22); }
+    .footer-link--address {
+      background: rgba(196,161,119,0.10);
+      border-color: rgba(196,161,119,0.24);
+      color: var(--nd-gold-400);
+    }
+    .footer-link--address:hover { background: rgba(196,161,119,0.16); border-color: rgba(196,161,119,0.38); }
+
+    .nd-footer-bottom {
+      padding-top: 24px;
+      border-top: 1px solid rgba(255,255,255,0.07);
+      display: flex; justify-content: center;
+    }
+    .nd-footer-copy {
+      font-family: var(--font-mono); font-size: 0.625rem;
+      letter-spacing: 0.2em; text-transform: uppercase;
+      color: rgba(255,255,255,0.18);
       text-align: center;
     }
-    .nd-footer-text {
-      font-family: var(--font-mono);
-      font-size: 0.625rem;
-      letter-spacing: 0.20em;
-      text-transform: uppercase;
-      color: rgba(255,255,255,0.22);
-    }
 
-    /* ═══════════════════════════════════════
-       RESPONSIVE: TABLET ≥768px
-    ═══════════════════════════════════════ */
+    /* ═══════════════════════ RESPONSIVE ═══════════════════════ */
     @media (min-width: 480px) {
       .hero-gif { width: min(560px, 90vw); }
       .hero-card { max-width: 460px; margin: 0 auto; border-radius: var(--radius-sheet); margin-bottom: 40px; }
       .hero { justify-content: center; }
     }
-
     @media (min-width: 768px) {
       .hero { min-height: 100vh; padding: 0 20px; }
       .hero-gif { width: 540px; top: -40px; }
-      .hero-card { max-width: 420px; box-shadow: 0 20px 80px -12px rgba(7,22,48,.36); }
-      .hero-fade { height: 320px; }
-
+      .hero-card { max-width: 440px; box-shadow: 0 20px 80px -12px rgba(7,22,48,.36); }
       .nd-section-inner { padding: 96px 40px; }
-
-      .pain-grid {
-        grid-template-columns: repeat(3, 1fr);
-        align-items: stretch;
+      .perks-grid { grid-template-columns: repeat(2, 1fr); }
+      .pain-list { display: grid; grid-template-columns: repeat(3,1fr); border-radius: var(--radius-card); }
+      .pain-item { border-bottom: none; border-right: 1px solid rgba(255,255,255,0.08); }
+      .pain-item:last-child { border-right: none; }
+      .process-steps { display: grid; grid-template-columns: repeat(3,1fr); gap: 0; }
+      .process-steps::before { left: 24px; right: 24px; top: 24px; bottom: auto; width: auto; height: 2px;
+        background: repeating-linear-gradient(to right, rgba(196,161,119,0.45) 0px, rgba(196,161,119,0.45) 5px, transparent 5px, transparent 11px);
       }
-
-      .process-steps {
-        display: grid;
-        grid-template-columns: repeat(3, 1fr);
-        gap: 32px;
-        position: relative;
-      }
-      .process-steps::before {
-        left: 24px;
-        right: 24px;
-        top: 24px;
-        bottom: auto;
-        width: auto;
-        height: 2px;
-        background: repeating-linear-gradient(
-          to right,
-          rgba(11,32,64,0.15) 0px,
-          rgba(11,32,64,0.15) 6px,
-          transparent 6px,
-          transparent 12px
-        );
-      }
-      .process-step {
-        display: flex;
-        flex-direction: column;
-        gap: 16px;
-        padding: 0;
-        border-top: none !important;
-      }
-      .process-step-num {
-        width: 48px;
-        height: 48px;
-      }
-
-      .perks-grid {
-        grid-template-columns: repeat(2, 1fr);
-      }
-
-      .social-row { gap: 12px; }
+      .process-item { display: flex; flex-direction: column; gap: 14px; padding: 0 20px 0 0; border: none !important; margin: 0 !important; }
+      .process-item + .process-item { padding-left: 20px; border-left: 1px solid rgba(11,32,64,0.06) !important; margin: 0 !important; }
+      .process-divider { display: none; }
+      .nd-footer-top { flex-direction: row; justify-content: space-between; align-items: flex-start; }
     }
-
     @media (min-width: 1024px) {
       .nd-section-inner { padding: 112px 64px; }
-
-      .perks-grid {
-        grid-template-columns: repeat(3, 1fr);
-      }
-      /* Last card spans full width when count isn't divisible by 3 */
-      .perk-card:last-child:nth-child(3n - 2) {
-        grid-column: 1 / -1;
-        max-width: 560px;
-      }
-
-      .cta-pair {
-        flex-direction: row;
-        align-items: center;
-        max-width: 520px;
-      }
-      .cta-pair .btn { white-space: nowrap; }
-      .cta-pair .divider {
-        flex-direction: column;
-        width: auto;
-        align-self: stretch;
-      }
-      .cta-pair .divider::before,
-      .cta-pair .divider::after { width: 1px; height: auto; flex: 1; }
-
-      .nd-final .cta-pair {
-        flex-direction: row;
-        justify-content: center;
-      }
+      .perks-grid { grid-template-columns: repeat(3, 1fr); }
+      .cta-pair { flex-direction: row; max-width: 520px; }
+      .cta-pair .divider { flex-direction: column; width: auto; align-self: stretch; }
+      .cta-pair .divider::before, .cta-pair .divider::after { width: 1px; height: auto; flex: 1; }
+      .nd-final .cta-pair { justify-content: center; }
     }
-
     @media (min-width: 1280px) {
       .nd-section-inner { max-width: 1200px; }
     }
@@ -1035,471 +861,589 @@
 </head>
 <body>
 
-  <!-- ════════════════════ HERO ════════════════════ -->
-  <div class="hero">
-    <div class="hero-logo">
-      <img src="assets/logo/neo-diamond-white.png" alt="Neo Diamond" />
-    </div>
-
-    <!-- GIF placeholder — replace src with your screencast GIF -->
-    <div class="hero-gif-placeholder"></div>
-    <img class="hero-gif" src="assets/renders/process.gif" alt="Создание украшения Neo Diamond" onerror="this.style.display='none'" />
-
-    <div class="hero-fade"></div>
-
-    <div class="hero-card">
-
-      <!-- State 1: Hero -->
-      <div class="card-hero">
-        <h1 class="headline-italic">Ваш вкус —<br>ваш смысл</h1>
-        <p class="hero-utp">Индивидуальное украшение на базе готовых дизайнов. Для тех, кто предпочитает эксклюзивность вместо масс-маркета.</p>
-        <div class="btn-group">
-          <button class="btn btn-primary" onclick="showLeadForm()">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/>
-            </svg>
-            Создать на конструкторе
-          </button>
-          <div class="divider"><span>или</span></div>
-          <a class="btn btn-secondary"
-            href="https://wa.me/77766708505?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5%2C+%D1%85%D0%BE%D1%87%D1%83+%D0%BE%D1%82%D0%BF%D1%80%D0%B0%D0%B2%D0%B8%D1%82%D1%8C+%D1%81%D0%B2%D0%BE%D0%B9+%D0%B4%D0%B8%D0%B7%D0%B0%D0%B9%D0%BD+%E2%80%94+%D0%BF%D0%BE%D1%81%D1%87%D0%B8%D1%82%D0%B0%D0%B9%D1%82%D0%B5+%D0%BF%D0%BE%D0%B6%D0%B0%D0%BB%D1%83%D0%B9%D1%81%D1%82%D0%B0+%D1%81%D1%82%D0%BE%D0%B8%D0%BC%D0%BE%D1%81%D1%82%D1%8C"
-            target="_blank" rel="noopener">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
-              <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/>
-            </svg>
-            Отправить свой дизайн
-          </a>
-        </div>
-        <p class="footer-note">Украшения на заказ · Алматы · Астана</p>
-      </div>
-
-      <!-- State 2: Lead form -->
-      <div class="card-form" id="leadForm">
-        <button class="form-back" onclick="hideLeadForm()">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M12 5l-7 7 7 7"/></svg>
-          Назад
-        </button>
-        <h2 class="form-title">Давайте<br>познакомимся</h2>
-        <p class="form-sub">Это займёт 10 секунд — а конструктор покажет живую цену украшения</p>
-        <div class="form-fields">
-          <input id="fname" class="form-input" type="text" placeholder="Ваше имя" autocomplete="given-name" />
-          <div class="form-phone-row">
-            <span class="form-dial">+7</span>
-            <input id="fphone" class="form-phone-input" type="tel" inputmode="numeric" placeholder="777 123 45 67" autocomplete="tel-national" />
-          </div>
-          <div class="form-timing-label">Когда нужно украшение?</div>
-          <div class="form-pills">
-            <button class="form-pill" onclick="selectTiming(this, 'В течение недели')">В течение недели</button>
-            <button class="form-pill" onclick="selectTiming(this, 'В течение месяца')">В течение месяца</button>
-            <button class="form-pill" onclick="selectTiming(this, 'Пока присматриваюсь')">Пока присматриваюсь</button>
-          </div>
-          <div id="formError" class="form-error"></div>
-          <button id="submitBtn" class="form-submit" onclick="submitLead()">Открыть конструктор →</button>
-        </div>
-      </div>
-
-    </div>
+<!-- ══════════════════ HERO ══════════════════ -->
+<div class="hero">
+  <div class="hero-logo">
+    <img src="assets/logo/neo-diamond-white.png" alt="Neo Diamond" />
   </div>
+  <div class="hero-gif-placeholder"></div>
+  <img class="hero-gif" src="assets/renders/process.gif" alt="Создание украшения" onerror="this.style.display='none'" />
+  <div class="hero-fade"></div>
 
-  <!-- ════════════════════ PAIN ════════════════════ -->
-  <section class="nd-section nd-pain">
-    <div class="nd-section-inner">
-      <span class="nd-eyebrow reveal">Для кого мы</span>
-      <h2 class="nd-section-title reveal">Узнаёте себя?</h2>
-
-      <div class="pain-grid">
-
-        <div class="pain-card reveal reveal-delay-1">
-          <span class="pain-card-num">01 / ситуация</span>
-          <h3 class="pain-card-title">Посредственное украшение, которое будет валяться в шкатулке</h3>
-          <p class="pain-card-text">На витринах, то — что в "целом" красиво, но не то — что трогает душу. Это самая большая проблема масс-маркета. Что же делать? Делать украшение на заказ? Тогда придется потратить много времени на поиск референсов, придумывать дизайн — тоже не пойдет. Ведь шопинг должен быть приятным и эмоциональным.</p>
-        </div>
-
-        <div class="pain-card reveal reveal-delay-2">
-          <span class="pain-card-num">02 / ситуация</span>
-          <h3 class="pain-card-title">Кольцо для предложения, которое не хочется, а приходится носить</h3>
-          <p class="pain-card-text">Вы отправляете референсы своему парню, но кольца вашей мечты — нет в масс-маркете. Что делать? Делать кольцо с нуля на заказ? — это месяцы ожидания и дорогая стоимость.</p>
-        </div>
-
-        <div class="pain-card reveal reveal-delay-3">
-          <span class="pain-card-num">03 / ситуация</span>
-          <h3 class="pain-card-title">Хочется подарить или получить что-то — не просто дорогое, а особенное, со смыслом</h3>
-          <p class="pain-card-text">Он знает, что я люблю украшения. Но ювелирные магазины — это 500 одинаковых витрин. Выбирает наугад и боится ошибиться. А я устала намекать, что хочу что-то особенное, а не очередной стандартный комплект из торгового центра.</p>
-        </div>
-
-      </div>
-
-      <!-- Solution -->
-      <div class="pain-solution reveal">
-        <span class="pain-solution-badge">
-          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-          Именно поэтому есть мы
-        </span>
-        <h3 class="pain-solution-title">Ювелирная студия<br>формата конструктор</h3>
-        <p class="pain-solution-text">Это когда вы создаёте собственное кольцо не с нуля, а сочетая форму и каратность бриллианта с готовыми дизайнами которые мы создали заранее.</p>
-        <p class="pain-solution-text">Благодаря этому, Вы получаете индивидуальное кольцо с крупным сертифицированным бриллиантом от 1го карата и больше, а если украшения нет в наличии — срок изготовления займет всего 7–14 дней.</p>
-
-        <div class="cta-pair">
-          <button class="btn btn-primary--inv" onclick="showLeadForm()">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
-            Создать на конструкторе
-          </button>
-          <div class="divider divider--inv"><span>или</span></div>
-          <a class="btn btn-secondary--inv"
-            href="https://wa.me/77766708505?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5%2C+%D1%85%D0%BE%D1%87%D1%83+%D0%BE%D1%82%D0%BF%D1%80%D0%B0%D0%B2%D0%B8%D1%82%D1%8C+%D1%81%D0%B2%D0%BE%D0%B9+%D0%B4%D0%B8%D0%B7%D0%B0%D0%B9%D0%BD"
-            target="_blank" rel="noopener">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
-            Отправить свой дизайн
-          </a>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ════════════════════ PROCESS ════════════════════ -->
-  <section class="nd-section nd-process">
-    <div class="nd-section-inner">
-      <span class="nd-eyebrow reveal">Как это работает</span>
-      <h2 class="nd-section-title reveal">Этапы работы</h2>
-
-      <div class="process-steps">
-
-        <div class="process-step reveal reveal-delay-1">
-          <div class="process-step-num">01</div>
-          <div class="process-step-body">
-            <h3 class="process-step-title">Вы собираете украшение на конструкторе или отправляете свой дизайн</h3>
-            <p class="process-step-text">Выберите огранку, оправу, металл и каратность бриллианта — конструктор показывает украшение в 3D и считает стоимость в реальном времени. Или просто напишите нам свой референс.</p>
-            <span class="process-step-icon">
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
-              Конструктор или WhatsApp
-            </span>
-          </div>
-        </div>
-
-        <div class="process-step reveal reveal-delay-2">
-          <div class="process-step-num">02</div>
-          <div class="process-step-body">
-            <h3 class="process-step-title">Мы связываемся с вами и приглашаем на живую примерку или консультируем онлайн</h3>
-            <p class="process-step-text">Уточняем детали, обсуждаем размер и нюансы дизайна. Вы можете примерить похожие украшения на витрине или получить полную консультацию дистанционно.</p>
-            <span class="process-step-icon">
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.44 2 2 0 0 1 3.59 1.25h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.84a16 16 0 0 0 6.29 6.29l.9-.9a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 21.92 16.92z"/></svg>
-              Алматы или онлайн
-            </span>
-          </div>
-        </div>
-
-        <div class="process-step reveal reveal-delay-3">
-          <div class="process-step-num">03</div>
-          <div class="process-step-body">
-            <h3 class="process-step-title">Подтверждаем заказ, подписываем договор и вручаем ваше украшение в течение 7–14 дней</h3>
-            <p class="process-step-text">Каждый заказ защищён договором. Вы отслеживаете этапы производства, а мы вручаем готовое украшение с сертификатом на бриллиант.</p>
-            <span class="process-step-icon">
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/></svg>
-              7–14 дней с договором
-            </span>
-          </div>
-        </div>
-
-      </div>
-
-      <div class="cta-pair reveal">
+  <div class="hero-card">
+    <div class="card-hero">
+      <h1 class="hero-utp-main">Индивидуальное украшение<br>на базе готовых дизайнов</h1>
+      <div class="hero-gold-rule"></div>
+      <p class="hero-utp-sub">Для тех, кто предпочитает<br>эксклюзивность вместо масс-маркета</p>
+      <div class="btn-group">
         <button class="btn btn-primary" onclick="showLeadForm()">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
           Создать на конструкторе
         </button>
         <div class="divider"><span>или</span></div>
-        <a class="btn btn-secondary"
-          href="https://wa.me/77766708505?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5%2C+%D1%85%D0%BE%D1%87%D1%83+%D0%BE%D1%82%D0%BF%D1%80%D0%B0%D0%B2%D0%B8%D1%82%D1%8C+%D1%81%D0%B2%D0%BE%D0%B9+%D0%B4%D0%B8%D0%B7%D0%B0%D0%B9%D0%BD"
-          target="_blank" rel="noopener">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+        <a class="btn btn-secondary" href="https://wa.me/77766708505?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5%2C+%D1%85%D0%BE%D1%87%D1%83+%D0%BE%D1%82%D0%BF%D1%80%D0%B0%D0%B2%D0%B8%D1%82%D1%8C+%D1%81%D0%B2%D0%BE%D0%B9+%D0%B4%D0%B8%D0%B7%D0%B0%D0%B9%D0%BD" target="_blank" rel="noopener">
+          <svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
           Отправить свой дизайн
         </a>
       </div>
     </div>
-  </section>
 
-  <!-- ════════════════════ PERKS ════════════════════ -->
-  <section class="nd-section nd-perks">
-    <div class="nd-section-inner">
-      <span class="nd-eyebrow reveal">Почему мы</span>
-      <h2 class="nd-section-title reveal">Наши преимущества</h2>
+  </div>
+</div>
 
-      <div class="perks-grid">
+<!-- ══════════════════ PAIN ══════════════════ -->
+<section class="nd-section nd-pain">
+  <div class="nd-section-inner">
+    <div class="nd-gold-rule reveal"></div>
+    <h2 class="nd-section-title reveal">Узнаёте себя?</h2>
 
-        <!-- 1. Сроки -->
-        <div class="perk-card reveal reveal-delay-1">
-          <div class="perk-icon">
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
-          </div>
-          <h3 class="perk-title">Быстрые стандартные сроки изготовления — 7-14 дней</h3>
-          <p class="perk-text">Имеется срочное изготовление до 7 дней по договоренности, а также наличие уже готовых украшений на витрине.</p>
-          <div class="perk-pills">
-            <span class="perk-pill perk-pill--accent">
-              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
-              7–14 дней стандарт
-            </span>
-            <span class="perk-pill">⚡ Срочно до 7 дней</span>
-            <span class="perk-pill">🏪 Готовые на витрине</span>
+    <div class="pain-list reveal">
+
+      <div class="pain-item">
+        <button class="pain-trigger" onclick="togglePain(this)">
+          <span class="pain-trigger-text">Посредственное украшение, которое будет валяться в шкатулке</span>
+          <span class="pain-icon">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+          </span>
+        </button>
+        <div class="pain-body">
+          <div class="pain-body-inner">
+            <p class="pain-body-text">На витринах, то — что в "целом" красиво, но не то — что трогает душу. Это самая большая проблема масс-маркета. Что же делать? Делать украшение на заказ? Тогда придется потратить много времени на поиск референсов, придумывать дизайн — тоже не пойдет. Ведь шопинг должен быть приятным и эмоциональным.</p>
           </div>
         </div>
+      </div>
 
-        <!-- 2. Качество -->
-        <div class="perk-card reveal reveal-delay-2">
+      <div class="pain-item">
+        <button class="pain-trigger" onclick="togglePain(this)">
+          <span class="pain-trigger-text">Кольцо для предложения, которое не хочется, а приходится носить</span>
+          <span class="pain-icon">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+          </span>
+        </button>
+        <div class="pain-body">
+          <div class="pain-body-inner">
+            <p class="pain-body-text">Вы отправляете референсы своему парню, но кольца вашей мечты — нет в масс-маркете. Что делать? Делать кольцо с нуля на заказ? — это месяцы ожидания и дорогая стоимость.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="pain-item">
+        <button class="pain-trigger" onclick="togglePain(this)">
+          <span class="pain-trigger-text">Хочется подарить или получить что-то особенное, со смыслом</span>
+          <span class="pain-icon">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+          </span>
+        </button>
+        <div class="pain-body">
+          <div class="pain-body-inner">
+            <p class="pain-body-text">Он знает, что я люблю украшения. Но ювелирные магазины — это 500 одинаковых витрин. Выбирает наугад и боится ошибиться. А я устала намекать, что хочу что-то особенное, а не очередной стандартный комплект из торгового центра.</p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="pain-solution reveal">
+      <h3 class="pain-solution-title">Ювелирная студия формата конструктор</h3>
+      <p class="pain-solution-text">Это когда вы создаёте собственное кольцо не с нуля, а сочетая форму и каратность бриллианта с готовыми дизайнами которые мы создали заранее.</p>
+      <p class="pain-solution-text">Благодаря этому, вы получаете украшение с крупным, сертифицированным бриллиантом в которое вы вкладывали собственную душу.</p>
+    </div>
+
+    <div class="cta-pair reveal">
+      <button class="btn btn-primary--inv" onclick="showLeadForm()">
+        <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+        Создать на конструкторе
+      </button>
+      <div class="divider divider--inv"><span>или</span></div>
+      <a class="btn btn-secondary--inv" href="https://wa.me/77766708505?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5%2C+%D1%85%D0%BE%D1%87%D1%83+%D0%BE%D1%82%D0%BF%D1%80%D0%B0%D0%B2%D0%B8%D1%82%D1%8C+%D1%81%D0%B2%D0%BE%D0%B9+%D0%B4%D0%B8%D0%B7%D0%B0%D0%B9%D0%BD" target="_blank" rel="noopener">
+        <svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+        Отправить свой дизайн
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════ PROCESS ══════════════════ -->
+<section class="nd-section nd-process">
+  <div class="nd-section-inner">
+    <div class="nd-gold-rule reveal"></div>
+    <h2 class="nd-section-title reveal">Этапы работы</h2>
+
+    <div class="process-steps">
+
+      <div class="process-item reveal reveal-d1">
+        <div class="process-num">01</div>
+        <div class="process-summary">
+          <h3 class="process-title">Вы собираете украшение на конструкторе или отправляете свой дизайн</h3>
+          <button class="process-toggle" onclick="toggleProcess(this)">
+            Подробнее
+            <span class="process-toggle-icon">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+            </span>
+          </button>
+          <div class="process-body">
+            <div class="process-body-inner">Выберите огранку, оправу, металл и каратность бриллианта — конструктор показывает украшение в 3D и считает стоимость в реальном времени. Или просто напишите нам свой референс в WhatsApp.</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="process-divider"></div>
+
+      <div class="process-item reveal reveal-d2">
+        <div class="process-num">02</div>
+        <div class="process-summary">
+          <h3 class="process-title">Мы связываемся с вами и приглашаем на живую примерку или консультируем онлайн</h3>
+          <button class="process-toggle" onclick="toggleProcess(this)">
+            Подробнее
+            <span class="process-toggle-icon">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+            </span>
+          </button>
+          <div class="process-body">
+            <div class="process-body-inner">Уточняем детали, обсуждаем размер и нюансы дизайна. Вы можете примерить похожие украшения на витрине в Алматы или получить полную консультацию дистанционно.</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="process-divider"></div>
+
+      <div class="process-item reveal reveal-d3">
+        <div class="process-num">03</div>
+        <div class="process-summary">
+          <h3 class="process-title">Подтверждаем заказ, подписываем договор и вручаем украшение в течение 7–14 дней</h3>
+          <button class="process-toggle" onclick="toggleProcess(this)">
+            Подробнее
+            <span class="process-toggle-icon">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+            </span>
+          </button>
+          <div class="process-body">
+            <div class="process-body-inner">Каждый заказ защищён договором. Вы отслеживаете этапы производства, а мы вручаем готовое украшение с сертификатом IGI на бриллиант и пакетом документов.</div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="cta-pair reveal">
+      <button class="btn btn-primary" onclick="showLeadForm()">
+        <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+        Создать на конструкторе
+      </button>
+      <div class="divider"><span>или</span></div>
+      <a class="btn btn-secondary" href="https://wa.me/77766708505?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5%2C+%D1%85%D0%BE%D1%87%D1%83+%D0%BE%D1%82%D0%BF%D1%80%D0%B0%D0%B2%D0%B8%D1%82%D1%8C+%D1%81%D0%B2%D0%BE%D0%B9+%D0%B4%D0%B8%D0%B7%D0%B0%D0%B9%D0%BD" target="_blank" rel="noopener">
+        <svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+        Отправить свой дизайн
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════ PERKS ══════════════════ -->
+<section class="nd-section nd-perks">
+  <div class="nd-section-inner">
+    <div class="nd-gold-rule reveal"></div>
+    <h2 class="nd-section-title reveal">Наши преимущества</h2>
+
+    <div class="perks-grid">
+
+      <div class="perk-card reveal reveal-d1">
+        <div class="perk-header">
           <div class="perk-icon">
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+          </div>
+          <h3 class="perk-title">Быстрые сроки — стандарт 7–14 дней</h3>
+        </div>
+        <p class="perk-text">Имеется срочное изготовление до 7 дней по договоренности, а также наличие уже готовых украшений на витрине.</p>
+        <div class="perk-pills">
+          <span class="perk-pill">7–14 дней стандарт</span>
+          <span class="perk-pill">Срочно до 7 дней</span>
+          <span class="perk-pill">Готовые на витрине</span>
+        </div>
+      </div>
+
+      <div class="perk-card reveal reveal-d2">
+        <div class="perk-header">
+          <div class="perk-icon">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
           </div>
           <h3 class="perk-title">Высокое качество украшений</h3>
-          <p class="perk-text">Отсутствие экономий на золоте, в среднем на 1 украшение тратится 4 грамма золота. При создании моделей украшений мы придерживаемся 2-х принципов — надежность в эксплуатации и изящность дизайна.</p>
-          <div class="perk-stat">
-            <span class="perk-stat-num">4</span>
-            <span class="perk-stat-unit">г золота<br>на украшение</span>
+        </div>
+        <p class="perk-text">Отсутствие экономий на золоте, в среднем на 1 украшение тратится 4 грамма золота. При создании моделей украшений мы придерживаемся 2-х принципов — надежность в эксплуатации и изящность дизайна.</p>
+        <div class="perk-stat">
+          <span class="perk-stat-num">4</span>
+          <span class="perk-stat-unit">г золота<br>на украшение</span>
+        </div>
+        <div class="perk-principles">
+          <div class="perk-principle">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+            <span class="perk-principle-label">Надёжность</span>
           </div>
-          <div class="perk-principles">
-            <div class="perk-principle">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-              <span class="perk-principle-label">Надёжность</span>
-            </div>
-            <div class="perk-principle">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
-              <span class="perk-principle-label">Изящество</span>
-            </div>
+          <div class="perk-principle">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+            <span class="perk-principle-label">Изящество</span>
           </div>
         </div>
+      </div>
 
-        <!-- 3. Уход -->
-        <div class="perk-card reveal reveal-delay-3">
-          <div class="perk-icon">
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 22C6.477 22 2 17.523 2 12S6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/><path d="M8 12c0-2.206 1.794-4 4-4"/><path d="M16 12c0 2.206-1.794 4-4 4"/></svg>
-          </div>
-          <h3 class="perk-title">Пожизненный бесплатный уход за украшением</h3>
-          <p class="perk-text">Ультразвуковая чистка, повторное родирование.</p>
-          <div class="perk-infinity">
-            <span class="perk-infinity-sym">∞</span>
-            <div class="perk-infinity-list">
-              <span class="perk-infinity-item">Ультразвуковая чистка</span>
-              <span class="perk-infinity-item">Повторное родирование</span>
-            </div>
-          </div>
-        </div>
-
-        <!-- 4. Сервис -->
-        <div class="perk-card reveal reveal-delay-1">
+      <div class="perk-card reveal reveal-d3">
+        <div class="perk-header">
           <div class="perk-icon">
             <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg>
           </div>
           <h3 class="perk-title">Сервис после покупки</h3>
-          <p class="perk-text">Если с украшением что то случится — мы отремонтируем, изготовим вторую пару и не только — по себестоимости работы мастера.</p>
-          <div class="perk-service-badge">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-            По себестоимости работы мастера
+        </div>
+        <p class="perk-text">Мы заботимся об украшении на протяжении всей его жизни — бесплатно и по себестоимости.</p>
+        <div class="perk-care-list">
+          <div class="perk-care-item">
+            <div class="perk-care-dot"></div>
+            <span class="perk-care-text">Пожизненная ультразвуковая чистка — бесплатно</span>
+          </div>
+          <div class="perk-care-item">
+            <div class="perk-care-dot"></div>
+            <span class="perk-care-text">Повторное родирование — бесплатно</span>
+          </div>
+          <div class="perk-care-item">
+            <div class="perk-care-dot"></div>
+            <span class="perk-care-text">Ремонт, изготовление второй пары и многое другое</span>
           </div>
         </div>
+        <div class="perk-care-badge">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+          По себестоимости работы мастера
+        </div>
+      </div>
 
-        <!-- 5. Лояльность -->
-        <div class="perk-card reveal reveal-delay-2">
+      <div class="perk-card reveal reveal-d2">
+        <div class="perk-header">
           <div class="perk-icon">
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M3 6l3 1m0 0l-3 9a5.002 5.002 0 006.001 0M6 7l3 9M6 7l6-2m6 2l3-1m-3 1l-3 9a5.002 5.002 0 006.001 0M18 7l3 9m-3-9l-6-2m0-2v2m0 16V5m0 16H9m3 0h3"/></svg>
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          </div>
+          <h3 class="perk-title">Высокие характеристики бриллиантов</h3>
+        </div>
+        <p class="perk-text">Мы используем бриллианты больших каратностей с высокими характеристиками.</p>
+        <div class="perk-care-list">
+          <div class="perk-care-item">
+            <div class="perk-care-dot"></div>
+            <span class="perk-care-text"><strong>Чистота VVS2/VS1</strong> — без внутренних трещин и изъянов, видимых глазу</span>
+          </div>
+          <div class="perk-care-item">
+            <div class="perk-care-dot"></div>
+            <span class="perk-care-text"><strong>Цвет D/E</strong> — абсолютно белый бриллиант, без пожелтевших оттенков</span>
+          </div>
+          <div class="perk-care-item">
+            <div class="perk-care-dot"></div>
+            <span class="perk-care-text"><strong>Огранка IDEAL</strong> — идеальный блеск и игра света</span>
+          </div>
+          <div class="perk-care-item">
+            <div class="perk-care-dot"></div>
+            <span class="perk-care-text"><strong>Сертификат IGI</strong> на каждый бриллиант весом 0.50 ct и выше</span>
+          </div>
+        </div>
+        <div class="perk-care-badge">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          Сертификат IGI прилагается
+        </div>
+      </div>
+
+      <div class="perk-card reveal reveal-d3">
+        <div class="perk-header">
+          <div class="perk-icon">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="8" r="6"/><path d="M15.477 12.89L17 22l-5-3-5 3 1.523-9.11"/></svg>
           </div>
           <h3 class="perk-title">Программа лояльности</h3>
-          <p class="perk-text">Приобретая украшение у нас 1 раз — вы начинаете коллекционировать украшения. По ходу создания своего ювелирного гардероба вы становитесь частью нашего сообщества и получаете — приглашения на закрытые мероприятия, лимитированные привилегии от нас и наших партнеров, возможность получать пассивный доход по нашей программе «neo girls».</p>
-          <div class="perk-pills">
-            <span class="perk-pill">🎭 Закрытые мероприятия</span>
-            <span class="perk-pill">✨ Лимитированные привилегии</span>
-            <span class="perk-pill perk-pill--accent">💎 Программа neo girls</span>
-          </div>
         </div>
-
+        <p class="perk-text">Приобретая украшение у нас 1 раз — вы начинаете коллекционировать украшения. По ходу создания своего ювелирного гардероба вы становитесь частью нашего сообщества и получаете — приглашения на закрытые мероприятия, лимитированные привилегии от нас и наших партнеров, возможность получать пассивный доход по нашей программе «neo girls».</p>
+        <div class="perk-pills">
+          <span class="perk-pill">Закрытые мероприятия</span>
+          <span class="perk-pill">Лимитированные привилегии</span>
+          <span class="perk-pill">Программа neo girls</span>
+        </div>
       </div>
 
-      <div class="cta-pair reveal">
-        <button class="btn btn-primary" onclick="showLeadForm()">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
-          Создать на конструкторе
-        </button>
-        <div class="divider"><span>или</span></div>
-        <a class="btn btn-secondary"
-          href="https://wa.me/77766708505?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5%2C+%D1%85%D0%BE%D1%87%D1%83+%D0%BE%D1%82%D0%BF%D1%80%D0%B0%D0%B2%D0%B8%D1%82%D1%8C+%D1%81%D0%B2%D0%BE%D0%B9+%D0%B4%D0%B8%D0%B7%D0%B0%D0%B9%D0%BD"
-          target="_blank" rel="noopener">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
-          Отправить свой дизайн
-        </a>
-      </div>
     </div>
-  </section>
 
-  <!-- ════════════════════ SOCIAL ════════════════════ -->
-  <section class="nd-section nd-social">
-    <div class="nd-section-inner">
-      <span class="nd-eyebrow reveal">Мы в сети</span>
-      <h2 class="nd-section-title reveal">Соцсети и адреса</h2>
+    <div class="cta-pair reveal">
+      <button class="btn btn-primary" onclick="showLeadForm()">
+        <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+        Создать на конструкторе
+      </button>
+      <div class="divider"><span>или</span></div>
+      <a class="btn btn-secondary" href="https://wa.me/77766708505?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5%2C+%D1%85%D0%BE%D1%87%D1%83+%D0%BE%D1%82%D0%BF%D1%80%D0%B0%D0%B2%D0%B8%D1%82%D1%8C+%D1%81%D0%B2%D0%BE%D0%B9+%D0%B4%D0%B8%D0%B7%D0%B0%D0%B9%D0%BD" target="_blank" rel="noopener">
+        <svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+        Отправить свой дизайн
+      </a>
+    </div>
+  </div>
+</section>
 
-      <div class="reveal">
-        <span class="social-row-label">Следите за нами</span>
-        <div class="social-row">
-          <a href="#" class="social-link" target="_blank" rel="noopener">
-            <!-- Instagram -->
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+<!-- ══════════════════ FINAL CTA ══════════════════ -->
+<section class="nd-section nd-final">
+  <div class="nd-section-inner">
+    <div class="nd-gold-rule reveal"></div>
+    <h2 class="nd-final-tagline reveal">Ваш вкус —<br>ваш смысл</h2>
+    <p class="nd-final-close reveal">Украшение, которое вы не найдёте ни в одном магазине.<br>Только то, что создали вы — с бриллиантом и смыслом.</p>
+
+    <div class="nd-final-trust reveal">
+      <span class="nd-final-trust-chip">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+        Договор на каждый заказ
+      </span>
+      <span class="nd-final-trust-chip">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+        7–14 дней изготовление
+      </span>
+      <span class="nd-final-trust-chip">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+        Сертификат IGI
+      </span>
+      <span class="nd-final-trust-chip">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg>
+        Пожизненный уход бесплатно
+      </span>
+    </div>
+
+    <div class="cta-pair reveal">
+      <button class="btn btn-primary--inv" onclick="showLeadForm()">
+        <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+        Создать на конструкторе
+      </button>
+      <div class="divider divider--inv"><span>или</span></div>
+      <a class="btn btn-secondary--inv" href="https://wa.me/77766708505?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5%2C+%D1%85%D0%BE%D1%87%D1%83+%D0%BE%D1%82%D0%BF%D1%80%D0%B0%D0%B2%D0%B8%D1%82%D1%8C+%D1%81%D0%B2%D0%BE%D0%B9+%D0%B4%D0%B8%D0%B7%D0%B0%D0%B9%D0%BD" target="_blank" rel="noopener">
+        <svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+        Отправить свой дизайн
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════ FOOTER ══════════════════ -->
+<footer class="nd-footer">
+  <div class="nd-footer-inner">
+    <div class="nd-footer-top">
+      <div class="footer-logo">
+        <img src="assets/logo/neo-diamond-white.png" alt="Neo Diamond" />
+      </div>
+
+      <div>
+        <span class="footer-col-label">Следите за нами</span>
+        <div class="footer-links">
+          <a href="#" class="footer-link" target="_blank" rel="noopener">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
             Instagram
           </a>
-          <a href="#" class="social-link" target="_blank" rel="noopener">
-            <!-- TikTok -->
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-2.88 2.5 2.89 2.89 0 01-2.89-2.89 2.89 2.89 0 012.89-2.89c.28 0 .54.04.79.1V9.01a6.33 6.33 0 00-.79-.05 6.34 6.34 0 00-6.34 6.34 6.34 6.34 0 006.34 6.34 6.34 6.34 0 006.33-6.34V8.73a8.28 8.28 0 004.84 1.55V6.83a4.85 4.85 0 01-1.07-.14z"/></svg>
+          <a href="#" class="footer-link" target="_blank" rel="noopener">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-2.88 2.5 2.89 2.89 0 01-2.89-2.89 2.89 2.89 0 012.89-2.89c.28 0 .54.04.79.1V9.01a6.33 6.33 0 00-.79-.05 6.34 6.34 0 00-6.34 6.34 6.34 6.34 0 006.34 6.34 6.34 6.34 0 006.33-6.34V8.73a8.28 8.28 0 004.84 1.55V6.83a4.85 4.85 0 01-1.07-.14z"/></svg>
             TikTok
           </a>
-          <a href="#" class="social-link" target="_blank" rel="noopener">
-            <!-- Threads -->
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12.186 24h-.007c-3.581-.024-6.334-1.205-8.184-3.509C2.35 18.44 1.5 15.586 1.5 12.03c0-3.53.874-6.388 2.6-8.5C5.928 1.246 8.61 0 12 0c3.39 0 6.072 1.246 7.9 3.53 1.726 2.112 2.6 4.97 2.6 8.5 0 3.556-.85 6.41-2.495 8.461-1.85 2.304-4.603 3.485-8.184 3.509h-.635zm-.38-3.93c2.35 0 4.14-.648 5.32-1.927 1.155-1.25 1.74-3.093 1.74-5.476 0-2.384-.585-4.228-1.74-5.477-1.18-1.279-2.97-1.927-5.32-1.927-2.35 0-4.14.648-5.32 1.927-1.155 1.25-1.74 3.093-1.74 5.477 0 2.383.585 4.226 1.74 5.476 1.18 1.279 2.97 1.927 5.32 1.927z"/></svg>
+          <a href="#" class="footer-link" target="_blank" rel="noopener">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12.186 24h-.007c-3.581-.024-6.334-1.205-8.184-3.509C2.35 18.44 1.5 15.586 1.5 12.03c0-3.53.874-6.388 2.6-8.5C5.928 1.246 8.61 0 12 0c3.39 0 6.072 1.246 7.9 3.53 1.726 2.112 2.6 4.97 2.6 8.5 0 3.556-.85 6.41-2.495 8.461-1.85 2.304-4.603 3.485-8.184 3.509h-.635zm-.38-3.93c2.35 0 4.14-.648 5.32-1.927 1.155-1.25 1.74-3.093 1.74-5.476 0-2.384-.585-4.228-1.74-5.477-1.18-1.279-2.97-1.927-5.32-1.927-2.35 0-4.14.648-5.32 1.927-1.155 1.25-1.74 3.093-1.74 5.477 0 2.383.585 4.226 1.74 5.476 1.18 1.279 2.97 1.927 5.32 1.927z"/></svg>
             Threads
           </a>
         </div>
       </div>
 
-      <div class="reveal" style="margin-top: 32px;">
-        <span class="social-row-label">Наши адреса</span>
-        <div class="social-row">
-          <a href="#" class="social-link social-link--address" target="_blank" rel="noopener">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+      <div>
+        <span class="footer-col-label">Наши адреса</span>
+        <div class="footer-links">
+          <a href="#" class="footer-link footer-link--address" target="_blank" rel="noopener">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
             Алматы — 2GIS
           </a>
-          <a href="#" class="social-link social-link--address" target="_blank" rel="noopener">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          <a href="#" class="footer-link footer-link--address" target="_blank" rel="noopener">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
             Астана — 2GIS
           </a>
         </div>
       </div>
-
     </div>
-  </section>
 
-  <!-- ════════════════════ FINAL CTA ════════════════════ -->
-  <section class="nd-section nd-final">
-    <div class="nd-section-inner">
-      <span class="nd-eyebrow reveal">Готовы начать?</span>
-      <h2 class="nd-final-title reveal">Ваш вкус —<br>ваш смысл</h2>
-      <p class="nd-final-sub reveal">Алматы · Астана · Украшения на заказ</p>
+    <div class="nd-footer-bottom">
+      <p class="nd-footer-copy">Neo Diamond · Ювелирная студия · Алматы · Астана</p>
+    </div>
+  </div>
+</footer>
 
-      <div class="cta-pair reveal" style="margin-top: 40px;">
-        <button class="btn btn-primary--inv" onclick="showLeadForm()">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
-          Создать на конструкторе
-        </button>
-        <div class="divider divider--inv"><span>или</span></div>
-        <a class="btn btn-secondary--inv"
-          href="https://wa.me/77766708505?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5%2C+%D1%85%D0%BE%D1%87%D1%83+%D0%BE%D1%82%D0%BF%D1%80%D0%B0%D0%B2%D0%B8%D1%82%D1%8C+%D1%81%D0%B2%D0%BE%D0%B9+%D0%B4%D0%B8%D0%B7%D0%B0%D0%B9%D0%BD"
-          target="_blank" rel="noopener">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
-          Отправить свой дизайн
-        </a>
+<!-- ══════════════════ LEAD MODAL ══════════════════ -->
+<div class="lead-modal" id="leadModal" onclick="handleModalBackdrop(event)">
+  <div class="lead-modal-inner">
+    <button class="form-back" onclick="hideLeadForm()">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M12 5l-7 7 7 7"/></svg>
+      Назад
+    </button>
+    <h2 class="form-title">Давайте<br>познакомимся</h2>
+    <p class="form-sub">Это займёт 10 секунд — а конструктор покажет живую цену украшения</p>
+    <div class="form-fields">
+      <input id="fname" class="form-input" type="text" placeholder="Ваше имя" autocomplete="given-name" />
+      <div class="form-phone-row">
+        <span class="form-dial">+7</span>
+        <input id="fphone" class="form-phone-input" type="tel" inputmode="numeric" placeholder="777 123 45 67" autocomplete="tel-national" />
       </div>
+      <div class="form-timing-label">Когда нужно украшение?</div>
+      <div class="form-pills">
+        <button type="button" class="form-pill" onclick="selectTiming(this,'В течение недели')">В течение недели</button>
+        <button type="button" class="form-pill" onclick="selectTiming(this,'В течение месяца')">В течение месяца</button>
+        <button type="button" class="form-pill" onclick="selectTiming(this,'Пока только присматриваюсь')">Пока только присматриваюсь</button>
+        <button type="button" class="form-pill form-pill--date" onclick="selectTimingDate(this)" id="pillDate">Своя дата</button>
+      </div>
+      <div id="monthPicker" class="month-picker" style="display:none">
+        <div class="month-picker-grid" id="monthGrid"></div>
+      </div>
+      <div id="formError" class="form-error"></div>
+      <button id="submitBtn" class="form-submit" onclick="submitLead()">Открыть конструктор →</button>
     </div>
-  </section>
+  </div>
+</div>
 
-  <!-- ════════════════════ FOOTER ════════════════════ -->
-  <footer class="nd-footer">
-    <p class="nd-footer-text">Neo Diamond · Ювелирная студия · Алматы · Астана</p>
-  </footer>
+<script>
+  var selectedTiming = null;
 
-  <script>
-    /* ── Lead form ── */
-    var selectedTiming = null;
+  function showLeadForm() {
+    document.getElementById('leadModal').classList.add('is-open');
+    document.body.style.overflow = 'hidden';
+    setTimeout(function() { var el = document.getElementById('fname'); if (el) el.focus(); }, 100);
+  }
 
-    function showLeadForm() {
-      window.scrollTo({ top: 0, behavior: 'smooth' });
-      setTimeout(function() {
-        document.body.classList.add('show-form');
-        setTimeout(function() {
-          var el = document.getElementById('fname');
-          if (el) el.focus();
-        }, 350);
-      }, window.scrollY > 100 ? 400 : 0);
-    }
+  function hideLeadForm() {
+    document.getElementById('leadModal').classList.remove('is-open');
+    document.body.style.overflow = '';
+    selectedTiming = null;
+    document.querySelectorAll('.form-pill').forEach(function(p) { p.classList.remove('is-active'); });
+    document.getElementById('pillDate').textContent = 'Своя дата';
+    document.getElementById('monthPicker').style.display = 'none';
+    document.getElementById('formError').classList.remove('visible');
+  }
 
-    function hideLeadForm() {
-      document.body.classList.remove('show-form');
-      selectedTiming = null;
-      document.querySelectorAll('.form-pill').forEach(function(p) { p.classList.remove('is-active'); });
-      document.getElementById('formError').classList.remove('visible');
-    }
+  function handleModalBackdrop(e) {
+    if (e.target === document.getElementById('leadModal')) hideLeadForm();
+  }
 
-    function selectTiming(el, value) {
-      selectedTiming = value;
-      document.querySelectorAll('.form-pill').forEach(function(p) { p.classList.remove('is-active'); });
-      el.classList.add('is-active');
-    }
+  var MONTHS = ['Январь','Февраль','Март','Апрель','Май','Июнь','Июль','Август','Сентябрь','Октябрь','Ноябрь','Декабрь'];
 
-    function submitLead() {
-      var name  = document.getElementById('fname').value.trim();
-      var phone = document.getElementById('fphone').value.replace(/\D/g, '');
-      var errEl = document.getElementById('formError');
-      var btn   = document.getElementById('submitBtn');
+  function selectTiming(el, value) {
+    selectedTiming = value;
+    document.querySelectorAll('.form-pill').forEach(function(p) { p.classList.remove('is-active'); });
+    el.classList.add('is-active');
+    document.getElementById('monthPicker').style.display = 'none';
+  }
 
-      errEl.classList.remove('visible');
-
-      if (name.length < 2) {
-        errEl.textContent = 'Пожалуйста, укажите ваше имя';
-        errEl.classList.add('visible');
-        document.getElementById('fname').focus();
-        return;
-      }
-      if (phone.length < 7) {
-        errEl.textContent = 'Пожалуйста, укажите номер телефона';
-        errEl.classList.add('visible');
-        document.getElementById('fphone').focus();
-        return;
-      }
-      if (!selectedTiming) {
-        errEl.textContent = 'Выберите, когда нужно украшение';
-        errEl.classList.add('visible');
-        return;
-      }
-
-      btn.disabled = true;
-      btn.textContent = 'Открываем...';
-
-      var fullPhone = '+7' + (phone.startsWith('7') ? phone.slice(1) : phone.startsWith('8') ? phone.slice(1) : phone);
-
-      var timingMap = {
-        'В течение недели': 'До 5-дней',
-        'В течение месяца': 'В течений месяца',
-        'Пока присматриваюсь': 'Больше месяца'
-      };
-
-      fetch('https://con.neodiamond.kz/api/submit-lead', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          name: name,
-          phone: fullPhone,
-          timing: timingMap[selectedTiming] || selectedTiming,
-          preCapture: true
-        })
-      }).catch(function() {});
-
-      setTimeout(function() {
-        window.location.href = 'https://con.neodiamond.kz';
-      }, 400);
-    }
-
-    /* ── Scroll reveal ── */
-    if ('IntersectionObserver' in window) {
-      var observer = new IntersectionObserver(function(entries) {
-        entries.forEach(function(entry) {
-          if (entry.isIntersecting) {
-            entry.target.classList.add('is-visible');
-            observer.unobserve(entry.target);
-          }
+  function selectTimingDate(pillEl) {
+    document.querySelectorAll('.form-pill').forEach(function(p) { p.classList.remove('is-active'); });
+    pillEl.classList.add('is-active');
+    selectedTiming = null;
+    var picker = document.getElementById('monthPicker');
+    if (picker.style.display === 'none') {
+      var grid = document.getElementById('monthGrid');
+      if (!grid.children.length) {
+        MONTHS.forEach(function(m, i) {
+          var btn = document.createElement('button');
+          btn.type = 'button';
+          btn.className = 'month-btn';
+          btn.textContent = m;
+          btn.onclick = function() {
+            selectedTiming = 'Своя дата: ' + m;
+            document.getElementById('pillDate').textContent = m;
+            document.querySelectorAll('.month-btn').forEach(function(b) { b.classList.remove('is-active'); });
+            btn.classList.add('is-active');
+          };
+          grid.appendChild(btn);
         });
-      }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
-
-      document.querySelectorAll('.reveal').forEach(function(el) {
-        observer.observe(el);
-      });
+      }
+      picker.style.display = 'block';
     } else {
-      // Fallback: show all immediately
-      document.querySelectorAll('.reveal').forEach(function(el) {
-        el.classList.add('is-visible');
-      });
+      picker.style.display = 'none';
     }
-  </script>
+  }
+
+  function submitLead() {
+    var name  = document.getElementById('fname').value.trim();
+    var phone = document.getElementById('fphone').value.replace(/\D/g, '');
+    var errEl = document.getElementById('formError');
+    var btn   = document.getElementById('submitBtn');
+    errEl.classList.remove('visible');
+    if (name.length < 2) { errEl.textContent = 'Пожалуйста, укажите ваше имя'; errEl.classList.add('visible'); document.getElementById('fname').focus(); return; }
+    if (phone.length < 7) { errEl.textContent = 'Пожалуйста, укажите номер телефона'; errEl.classList.add('visible'); document.getElementById('fphone').focus(); return; }
+    if (!selectedTiming) { errEl.textContent = 'Выберите, когда нужно украшение'; errEl.classList.add('visible'); return; }
+    btn.disabled = true; btn.textContent = 'Открываем...';
+    var fullPhone = '+7' + (phone.startsWith('7') ? phone.slice(1) : phone.startsWith('8') ? phone.slice(1) : phone);
+    var timingMap = { 'В течение недели': 'В течение недели', 'В течение месяца': 'В течение месяца', 'Пока только присматриваюсь': 'Пока только присматриваюсь' };
+    fetch('https://con.neodiamond.kz/api/submit-lead', {
+      method: 'POST', headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ name: name, phone: fullPhone, timing: timingMap[selectedTiming] || selectedTiming, preCapture: true, stageId: 86428934 })
+    })
+    .then(function(r) { return r.ok ? r.json() : {}; })
+    .then(function(data) {
+      var lid = data.leadId ? String(data.leadId) : '';
+      window.location.href = 'https://con.neodiamond.kz' + (lid ? '?lid=' + lid : '');
+    })
+    .catch(function() {
+      window.location.href = 'https://con.neodiamond.kz';
+    });
+  }
+
+  function togglePain(btn) {
+    var item = btn.closest('.pain-item');
+    var body = item.querySelector('.pain-body');
+    var isOpen = item.classList.contains('is-open');
+    document.querySelectorAll('.pain-item.is-open').forEach(function(el) {
+      el.classList.remove('is-open');
+      el.querySelector('.pain-body').style.maxHeight = '0';
+    });
+    if (!isOpen) {
+      item.classList.add('is-open');
+      body.style.maxHeight = body.scrollHeight + 'px';
+    }
+  }
+
+  function toggleProcess(btn) {
+    var item = btn.closest('.process-item');
+    var body = item.querySelector('.process-body');
+    var isOpen = item.classList.contains('is-open');
+    item.classList.toggle('is-open', !isOpen);
+    body.style.maxHeight = isOpen ? '0' : body.scrollHeight + 'px';
+  }
+
+  /* ── Hero sticky scale + parallax ── */
+  (function() {
+    var hero = document.querySelector('.hero');
+    var gif = document.querySelector('.hero-gif');
+    var placeholder = document.querySelector('.hero-gif-placeholder');
+    var heroH = window.innerHeight;
+    var ticking = false;
+
+    window.addEventListener('scroll', function() {
+      if (ticking) return;
+      ticking = true;
+      requestAnimationFrame(function() {
+        var y = window.scrollY;
+
+        /* parallax on gif — skip when form is open (CSS handles transform) */
+        var offset = y * 0.28;
+        if (gif && !document.body.classList.contains('show-form')) gif.style.transform = 'translateX(-50%) translateY(' + offset + 'px)';
+        if (placeholder) placeholder.style.transform = 'translateX(-50%) translateY(' + (offset * 0.6) + 'px)';
+
+        /* scale hero down slightly as pain section slides over */
+        if (hero) {
+          var progress = Math.min(y / heroH, 1);
+          var scale = 1 - progress * 0.06;
+          var opacity = 1 - progress * 0.3;
+          hero.style.transform = 'scale(' + scale + ')';
+          hero.style.opacity = opacity;
+        }
+
+        ticking = false;
+      });
+    }, { passive: true });
+  })();
+
+  if ('IntersectionObserver' in window) {
+    var obs = new IntersectionObserver(function(entries) {
+      entries.forEach(function(e) { if (e.isIntersecting) { e.target.classList.add('is-visible'); obs.unobserve(e.target); } });
+    }, { threshold: 0.1, rootMargin: '0px 0px -32px 0px' });
+    document.querySelectorAll('.reveal').forEach(function(el) { obs.observe(el); });
+  } else {
+    document.querySelectorAll('.reveal').forEach(function(el) { el.classList.add('is-visible'); });
+  }
+</script>
 </body>
 </html>
