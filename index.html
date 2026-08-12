@@ -234,19 +234,14 @@
       100% { opacity: 0.3; transform: translateY(0); }
     }
     .hero-scroll-hint {
-      position: absolute;
-      bottom: 20px;
-      left: 50%;
-      transform: translateX(-50%);
-      z-index: 4;
       display: flex;
-      flex-direction: column;
-      align-items: center;
+      justify-content: center;
+      padding: 10px 0 0;
       pointer-events: none;
     }
     .hero-scroll-hint svg {
       animation: scroll-arrow 1.8s ease-in-out infinite;
-      color: rgba(11,32,64,0.4);
+      color: rgba(11,32,64,0.3);
     }
     .btn-secondary { background: transparent; color: var(--nd-ink-800); border: 1.5px solid rgba(11,32,64,.20); }
     .btn-secondary:hover { background: rgba(11,32,64,.04); border-color: rgba(11,32,64,.38); }
@@ -894,11 +889,10 @@
   <video class="hero-gif" src="assets/hero.mp4" autoplay muted loop playsinline></video>
   <div class="hero-top-fade"></div>
   <div class="hero-fade"></div>
-  <div class="hero-scroll-hint">
-    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
-  </div>
-
   <div class="hero-card">
+    <div class="hero-scroll-hint">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+    </div>
     <div class="card-hero">
       <h1 class="hero-utp-main">Индивидуальное украшение<br>на базе готовых дизайнов</h1>
       <div class="hero-gold-rule"></div>
