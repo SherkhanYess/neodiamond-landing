@@ -52,6 +52,13 @@
   status = 200
   force = true
 
+# Справка для ИИ-ассистентов: собирается вместе с каталогом, описывает весь сайт.
+[[redirects]]
+  from = "/llms.txt"
+  to = "https://con.neodiamond.kz/llms.txt"
+  status = 200
+  force = true
+
 # Своей иконки у лендинга нет, а каталог её запрашивает — берём общую.
 [[redirects]]
   from = "/favicon.svg"
