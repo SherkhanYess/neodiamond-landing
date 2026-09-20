@@ -1,3 +1,65 @@
+# Каталог живёт в отдельном репозитории и на отдельном сайте Netlify, но для
+# посетителя и для поисковика он должен быть частью neodiamond.kz — поддомен
+# con. считается отдельным сайтом и не наследует доверие основного домена.
+#
+# Правила ниже отдают каталог по адресу neodiamond.kz/catalog, забирая его с
+# con.neodiamond.kz на стороне сервера. Посетитель видит один домен, адресная
+# строка не меняется, конструктор на con.neodiamond.kz продолжает работать как
+# работал — мы его не трогаем.
+#
+# Порядок важен: Netlify применяет первое подошедшее правило, поэтому
+# всеобщий /* остаётся последним.
+
+# Сам каталог: и корень раздела, и всё, что внутри.
+[[redirects]]
+  from = "/catalog"
+  to = "https://con.neodiamond.kz/catalog"
+  status = 200
+  force = true
+
+[[redirects]]
+  from = "/catalog/*"
+  to = "https://con.neodiamond.kz/catalog/:splat"
+  status = 200
+  force = true
+
+# Скрипты, стили, шрифты и изображения каталога. Собственные файлы лендинга
+# лежат в /media — раньше они были в /assets и заняли бы этот префикс.
+[[redirects]]
+  from = "/assets/*"
+  to = "https://con.neodiamond.kz/assets/:splat"
+  status = 200
+  force = true
+
+# Цены, аналитика и админка каталога — это функции на стороне con.
+[[redirects]]
+  from = "/api/*"
+  to = "https://con.neodiamond.kz/api/:splat"
+  status = 200
+  force = true
+
+# Карта сайта и правила для роботов собираются вместе с каталогом и описывают
+# теперь весь домен целиком.
+[[redirects]]
+  from = "/sitemap.xml"
+  to = "https://con.neodiamond.kz/sitemap.xml"
+  status = 200
+  force = true
+
+[[redirects]]
+  from = "/robots.txt"
+  to = "https://con.neodiamond.kz/robots.txt"
+  status = 200
+  force = true
+
+# Своей иконки у лендинга нет, а каталог её запрашивает — берём общую.
+[[redirects]]
+  from = "/favicon.svg"
+  to = "https://con.neodiamond.kz/favicon.svg"
+  status = 200
+  force = true
+
+# Лендинг — одностраничный, всё остальное отдаёт его.
 [[redirects]]
   from = "/*"
   to = "/index.html"
