@@ -144,19 +144,6 @@
       transition: opacity 0.3s var(--ease-out);
     }
     /* Lead form modal */
-    .lead-modal {
-      display: none; position: fixed; inset: 0; z-index: 200;
-      background: rgba(11,32,64,.55); backdrop-filter: blur(4px);
-      align-items: center; justify-content: center; padding: 16px;
-    }
-    .lead-modal.is-open { display: flex; }
-    .lead-modal-inner {
-      background: var(--nd-paper-000); border-radius: 24px;
-      box-shadow: 0 24px 64px rgba(11,32,64,.22);
-      width: 100%; max-width: 420px;
-      max-height: 90vh; overflow-y: auto;
-      padding: 40px 28px 48px; position: relative;
-    }
 
     /* Hero UTP */
     .hero-utp-main {
@@ -275,84 +262,6 @@
     .divider--inv span { color: rgba(255,255,255,.35); }
 
     /* Lead form */
-    .form-back {
-      display: inline-flex; align-items: center; gap: 6px;
-      background: none; border: none; cursor: pointer;
-      color: var(--nd-ink-400); font-family: var(--font-body);
-      font-size: .875rem; padding: 0; margin-bottom: 28px;
-      align-self: flex-start;
-      -webkit-tap-highlight-color: transparent;
-    }
-    .form-back:hover { color: var(--nd-ink-800); }
-    .form-title {
-      font-family: var(--font-display); font-weight: 300;
-      font-size: clamp(1.5rem,6vw,2rem); line-height: 1.1;
-      letter-spacing: -0.02em; color: var(--nd-ink-800); margin-bottom: 6px;
-    }
-    .form-sub { font-size: .875rem; color: var(--nd-ink-400); line-height: 1.55; margin-bottom: 28px; }
-    .form-fields { display: flex; flex-direction: column; gap: 14px; width: 100%; }
-    .form-input {
-      width: 100%; padding: 15px 18px;
-      border: 1.5px solid rgba(11,32,64,.16); border-radius: 16px;
-      font-family: var(--font-body); font-size: 16px;
-      color: var(--nd-ink-800); background: var(--nd-paper-050);
-      outline: none; -webkit-appearance: none; transition: border-color .2s;
-    }
-    .form-input:focus { border-color: var(--nd-ink-800); background: #fff; }
-    .form-input::placeholder { color: var(--nd-ink-200); }
-    .form-phone-row {
-      display: flex; align-items: center;
-      border: 1.5px solid rgba(11,32,64,.16); border-radius: 16px;
-      background: var(--nd-paper-050); overflow: hidden; transition: border-color .2s;
-    }
-    .form-phone-row:focus-within { border-color: var(--nd-ink-800); background: #fff; }
-    .form-dial { padding: 15px 0 15px 18px; font-size: 16px; font-family: var(--font-body); color: var(--nd-ink-400); flex-shrink: 0; }
-    .form-phone-input {
-      flex: 1; padding: 15px 18px 15px 6px;
-      border: none; background: transparent; font-family: var(--font-body);
-      font-size: 16px; color: var(--nd-ink-800); outline: none; -webkit-appearance: none;
-    }
-    .form-phone-input::placeholder { color: var(--nd-ink-200); }
-    .form-timing-label {
-      font-family: var(--font-display); font-size: .625rem; font-weight: 400;
-      letter-spacing: .18em; text-transform: uppercase; color: var(--nd-ink-400); margin-top: 4px;
-    }
-    .form-pills { display: flex; flex-wrap: wrap; gap: 8px; }
-    .form-pill {
-      padding: 11px 18px; border-radius: var(--radius-pill);
-      border: 1.5px solid rgba(11,32,64,.16); background: transparent;
-      color: var(--nd-ink-400); font-family: var(--font-body);
-      font-size: .875rem; cursor: pointer;
-      transition: background .15s, border-color .15s, color .15s;
-      -webkit-tap-highlight-color: transparent; white-space: nowrap;
-    }
-    .form-pill:hover { background: rgba(11,32,64,.04); }
-    .form-pill:active { transform: scale(0.97); }
-    .form-pill.is-active { background: var(--nd-ink-800); border-color: var(--nd-ink-800); color: #fff; font-weight: 600; }
-    .month-picker { margin-top: 8px; }
-    .month-picker-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 6px; }
-    .month-btn {
-      padding: 9px 4px; border-radius: 10px; border: 1.5px solid rgba(11,32,64,.14);
-      background: transparent; color: var(--nd-ink-400); font-family: var(--font-body);
-      font-size: .8125rem; cursor: pointer; text-align: center;
-      transition: background .15s, border-color .15s, color .15s;
-      -webkit-tap-highlight-color: transparent;
-    }
-    .month-btn:hover { background: rgba(11,32,64,.04); }
-    .month-btn.is-active { background: var(--nd-ink-800); border-color: var(--nd-ink-800); color: #fff; font-weight: 600; }
-    .form-error { font-size: .8125rem; color: #A64155; padding: 10px 14px; background: rgba(166,65,85,.08); border-radius: 10px; display: none; }
-    .form-error.visible { display: block; }
-    .form-submit {
-      width: 100%; padding: 18px 24px; margin-top: 8px;
-      border: none; border-radius: var(--radius-pill);
-      background: var(--nd-ink-800); color: #fff;
-      font-family: var(--font-body); font-size: 1rem; font-weight: 600;
-      cursor: pointer; transition: opacity .2s, transform .15s;
-      -webkit-tap-highlight-color: transparent; letter-spacing: -0.01em;
-    }
-    .form-submit:hover { opacity: .88; }
-    .form-submit:active { transform: scale(0.97); }
-    .form-submit:disabled { opacity: .4; cursor: not-allowed; }
 
     /* ═══════════════════════ SHARED ═══════════════════════ */
     .nd-section { width: 100%; }
@@ -891,19 +800,20 @@
     <img src="media/logo/neo-diamond-white.png" alt="Neo Diamond" />
   </div>
   <div class="hero-gif-placeholder"></div>
-  <video class="hero-gif" src="media/hero.mp4" autoplay muted loop playsinline></video>
+  <img class="hero-gif" src="media/renders/ring-white-pink-hero.png"
+       alt="Кольцо с бриллиантом огранки «круг» в белом золоте" fetchpriority="high" />
   <div class="hero-top-fade"></div>
   <div class="hero-fade"></div>
   <div class="hero-card">
     <div class="card-hero">
       <h1 class="hero-utp-main">Индивидуальное украшение<br>на базе готовых дизайнов</h1>
       <div class="hero-gold-rule"></div>
-      <p class="hero-utp-sub">Для тех, кто предпочитает<br>эксклюзивность вместо масс-маркета</p>
+      <p class="hero-utp-sub">Помолвка, свадьба, сырга салу,<br>подарок или украшение для себя</p>
       <div class="btn-group">
-        <button class="btn btn-primary btn-primary--hero" onclick="showLeadForm()">
+        <a class="btn btn-primary btn-primary--hero" href="/catalog">
           <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
-          Создать на конструкторе
-        </button>
+          Смотреть каталог
+        </a>
         <div class="divider"><span>или</span></div>
         <a class="btn btn-secondary" href="https://wa.me/77766708505?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5%2C+%D1%85%D0%BE%D1%87%D1%83+%D0%BE%D1%82%D0%BF%D1%80%D0%B0%D0%B2%D0%B8%D1%82%D1%8C+%D1%81%D0%B2%D0%BE%D0%B9+%D0%B4%D0%B8%D0%B7%D0%B0%D0%B9%D0%BD" target="_blank" rel="noopener">
           <svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
@@ -977,10 +887,10 @@
     </div>
 
     <div class="cta-pair reveal">
-      <button class="btn btn-primary--inv" onclick="showLeadForm()">
+      <a class="btn btn-primary--inv" href="/catalog">
         <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
-        Создать на конструкторе
-      </button>
+        Смотреть каталог
+      </a>
       <div class="divider divider--inv"><span>или</span></div>
       <a class="btn btn-secondary--inv" href="https://wa.me/77766708505?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5%2C+%D1%85%D0%BE%D1%87%D1%83+%D0%BE%D1%82%D0%BF%D1%80%D0%B0%D0%B2%D0%B8%D1%82%D1%8C+%D1%81%D0%B2%D0%BE%D0%B9+%D0%B4%D0%B8%D0%B7%D0%B0%D0%B9%D0%BD" target="_blank" rel="noopener">
         <svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
@@ -1027,7 +937,7 @@
             </span>
           </button>
           <div class="process-body">
-            <div class="process-body-inner">Уточняем детали, обсуждаем размер и нюансы дизайна. Вы можете примерить похожие украшения на витрине в Алматы или получить полную консультацию дистанционно.</div>
+            <div class="process-body-inner">Уточняем детали, обсуждаем размер и нюансы дизайна. Вы можете примерить похожие украшения в шоурумах Алматы и Астаны или получить полную консультацию дистанционно.</div>
           </div>
         </div>
       </div>
@@ -1037,7 +947,7 @@
       <div class="process-item reveal reveal-d3">
         <div class="process-num">03</div>
         <div class="process-summary">
-          <h3 class="process-title">Подтверждаем заказ, подписываем договор и вручаем украшение в течение 7–14 дней</h3>
+          <h3 class="process-title">Подтверждаем заказ, подписываем договор и вручаем украшение за 5–10 календарных дней</h3>
           <button class="process-toggle" onclick="toggleProcess(this)">
             Подробнее
             <span class="process-toggle-icon">
@@ -1045,7 +955,7 @@
             </span>
           </button>
           <div class="process-body">
-            <div class="process-body-inner">Каждый заказ защищён договором. Вы отслеживаете этапы производства, а мы вручаем готовое украшение с сертификатом IGI на бриллиант и пакетом документов.</div>
+            <div class="process-body-inner">Каждый заказ защищён договором. Вы отслеживаете этапы производства, а мы вручаем готовое украшение с сертификатом на бриллиант — IGI для лабораторного, GIA для природного — и пакетом документов.</div>
           </div>
         </div>
       </div>
@@ -1053,10 +963,10 @@
     </div>
 
     <div class="cta-pair reveal">
-      <button class="btn btn-primary" onclick="showLeadForm()">
+      <a class="btn btn-primary" href="/catalog">
         <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
-        Создать на конструкторе
-      </button>
+        Смотреть каталог
+      </a>
       <div class="divider"><span>или</span></div>
       <a class="btn btn-secondary" href="https://wa.me/77766708505?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5%2C+%D1%85%D0%BE%D1%87%D1%83+%D0%BE%D1%82%D0%BF%D1%80%D0%B0%D0%B2%D0%B8%D1%82%D1%8C+%D1%81%D0%B2%D0%BE%D0%B9+%D0%B4%D0%B8%D0%B7%D0%B0%D0%B9%D0%BD" target="_blank" rel="noopener">
         <svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
@@ -1079,12 +989,12 @@
           <div class="perk-icon">
             <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
           </div>
-          <h3 class="perk-title">Быстрые сроки — стандарт 7–14 дней</h3>
+          <h3 class="perk-title">Быстрые сроки — 5–10 календарных дней</h3>
         </div>
-        <p class="perk-text">Имеется срочное изготовление до 7 дней по договоренности, а также наличие уже готовых украшений на витрине.</p>
+        <p class="perk-text">Имеется срочное изготовление до 5 дней по договоренности, а также наличие уже готовых украшений на витрине.</p>
         <div class="perk-pills">
-          <span class="perk-pill">7–14 дней стандарт</span>
-          <span class="perk-pill">Срочно до 7 дней</span>
+          <span class="perk-pill">5–10 дней стандарт</span>
+          <span class="perk-pill">Срочно до 5 дней</span>
           <span class="perk-pill">Готовые на витрине</span>
         </div>
       </div>
@@ -1165,7 +1075,7 @@
         </div>
         <div class="perk-care-badge">
           <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
-          Сертификат IGI на каждый бриллиант весом 0.50 ct и выше
+          Сертификат на каждый бриллиант от 0,50 ct: IGI для лабораторного, GIA для природного
         </div>
       </div>
 
@@ -1187,10 +1097,10 @@
     </div>
 
     <div class="cta-pair reveal">
-      <button class="btn btn-primary" onclick="showLeadForm()">
+      <a class="btn btn-primary" href="/catalog">
         <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
-        Создать на конструкторе
-      </button>
+        Смотреть каталог
+      </a>
       <div class="divider"><span>или</span></div>
       <a class="btn btn-secondary" href="https://wa.me/77766708505?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5%2C+%D1%85%D0%BE%D1%87%D1%83+%D0%BE%D1%82%D0%BF%D1%80%D0%B0%D0%B2%D0%B8%D1%82%D1%8C+%D1%81%D0%B2%D0%BE%D0%B9+%D0%B4%D0%B8%D0%B7%D0%B0%D0%B9%D0%BD" target="_blank" rel="noopener">
         <svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
@@ -1214,7 +1124,7 @@
       </span>
       <span class="nd-final-trust-chip">
         <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
-        7–14 дней изготовление
+        5–10 дней изготовление
       </span>
       <span class="nd-final-trust-chip">
         <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
@@ -1227,10 +1137,10 @@
     </div>
 
     <div class="cta-pair reveal">
-      <button class="btn btn-primary--inv" onclick="showLeadForm()">
+      <a class="btn btn-primary--inv" href="/catalog">
         <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
-        Создать на конструкторе
-      </button>
+        Смотреть каталог
+      </a>
       <div class="divider divider--inv"><span>или</span></div>
       <a class="btn btn-secondary--inv" href="https://wa.me/77766708505?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5%2C+%D1%85%D0%BE%D1%87%D1%83+%D0%BE%D1%82%D0%BF%D1%80%D0%B0%D0%B2%D0%B8%D1%82%D1%8C+%D1%81%D0%B2%D0%BE%D0%B9+%D0%B4%D0%B8%D0%B7%D0%B0%D0%B9%D0%BD" target="_blank" rel="noopener">
         <svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
@@ -1251,17 +1161,9 @@
       <div>
         <span class="footer-col-label">Следите за нами</span>
         <div class="footer-links">
-          <a href="#" class="footer-link" target="_blank" rel="noopener">
+          <a href="https://www.instagram.com/neodiamond.kz/" class="footer-link" target="_blank" rel="noopener">
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
             Instagram
-          </a>
-          <a href="#" class="footer-link" target="_blank" rel="noopener">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-2.88 2.5 2.89 2.89 0 01-2.89-2.89 2.89 2.89 0 012.89-2.89c.28 0 .54.04.79.1V9.01a6.33 6.33 0 00-.79-.05 6.34 6.34 0 00-6.34 6.34 6.34 6.34 0 006.34 6.34 6.34 6.34 0 006.33-6.34V8.73a8.28 8.28 0 004.84 1.55V6.83a4.85 4.85 0 01-1.07-.14z"/></svg>
-            TikTok
-          </a>
-          <a href="#" class="footer-link" target="_blank" rel="noopener">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12.186 24h-.007c-3.581-.024-6.334-1.205-8.184-3.509C2.35 18.44 1.5 15.586 1.5 12.03c0-3.53.874-6.388 2.6-8.5C5.928 1.246 8.61 0 12 0c3.39 0 6.072 1.246 7.9 3.53 1.726 2.112 2.6 4.97 2.6 8.5 0 3.556-.85 6.41-2.495 8.461-1.85 2.304-4.603 3.485-8.184 3.509h-.635zm-.38-3.93c2.35 0 4.14-.648 5.32-1.927 1.155-1.25 1.74-3.093 1.74-5.476 0-2.384-.585-4.228-1.74-5.477-1.18-1.279-2.97-1.927-5.32-1.927-2.35 0-4.14.648-5.32 1.927-1.155 1.25-1.74 3.093-1.74 5.477 0 2.383.585 4.226 1.74 5.476 1.18 1.279 2.97 1.927 5.32 1.927z"/></svg>
-            Threads
           </a>
         </div>
       </div>
@@ -1269,140 +1171,33 @@
       <div>
         <span class="footer-col-label">Наши адреса</span>
         <div class="footer-links">
-          <a href="#" class="footer-link footer-link--address" target="_blank" rel="noopener">
+          <a href="https://2gis.kz/almaty/firm/70000001105797883" class="footer-link footer-link--address" target="_blank" rel="noopener">
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
-            Алматы — 2GIS
+            Алматы, Аль-Фараби 116/36 — 2ГИС
           </a>
-          <a href="#" class="footer-link footer-link--address" target="_blank" rel="noopener">
+          <a href="https://2gis.kz/astana/geo/70030076386544768/71.420083,51.133619" class="footer-link footer-link--address" target="_blank" rel="noopener">
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
-            Астана — 2GIS
+            Астана, Конаева 5 — 2ГИС
           </a>
         </div>
       </div>
     </div>
 
     <div class="nd-footer-bottom">
+      <p class="nd-footer-copy">
+        <a href="tel:+77766708505" style="color:inherit">+7 (776) 670 8505</a> — Алматы &nbsp;·&nbsp;
+        <a href="tel:+77776908505" style="color:inherit">+7 (777) 690 8505</a> — Астана
+      </p>
+      <p class="nd-footer-copy">Ежедневно 10:00–21:00, показы по записи</p>
       <p class="nd-footer-copy">Neo Diamond · Ювелирная студия · Алматы · Астана</p>
     </div>
   </div>
 </footer>
 
 <!-- ══════════════════ LEAD MODAL ══════════════════ -->
-<div class="lead-modal" id="leadModal" onclick="handleModalBackdrop(event)">
-  <div class="lead-modal-inner">
-    <button class="form-back" onclick="hideLeadForm()">
-      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M12 5l-7 7 7 7"/></svg>
-      Назад
-    </button>
-    <h2 class="form-title">Давайте<br>познакомимся</h2>
-    <p class="form-sub">Это займёт 10 секунд — а конструктор покажет живую цену украшения</p>
-    <div class="form-fields">
-      <input id="fname" class="form-input" type="text" placeholder="Ваше имя" autocomplete="given-name" />
-      <div class="form-phone-row">
-        <span class="form-dial">+7</span>
-        <input id="fphone" class="form-phone-input" type="tel" inputmode="numeric" placeholder="777 123 45 67" autocomplete="tel-national" />
-      </div>
-      <div class="form-timing-label">Когда нужно украшение?</div>
-      <div class="form-pills">
-        <button type="button" class="form-pill" onclick="selectTiming(this,'В течение недели')">В течение недели</button>
-        <button type="button" class="form-pill" onclick="selectTiming(this,'В течение месяца')">В течение месяца</button>
-        <button type="button" class="form-pill" onclick="selectTiming(this,'Пока только присматриваюсь')">Пока только присматриваюсь</button>
-        <button type="button" class="form-pill form-pill--date" onclick="selectTimingDate(this)" id="pillDate">Своя дата</button>
-      </div>
-      <div id="monthPicker" class="month-picker" style="display:none">
-        <div class="month-picker-grid" id="monthGrid"></div>
-      </div>
-      <div id="formError" class="form-error"></div>
-      <button id="submitBtn" class="form-submit" onclick="submitLead()">Открыть конструктор →</button>
-    </div>
-  </div>
-</div>
+
 
 <script>
-  var selectedTiming = null;
-
-  function showLeadForm() {
-    document.getElementById('leadModal').classList.add('is-open');
-    document.body.style.overflow = 'hidden';
-    setTimeout(function() { var el = document.getElementById('fname'); if (el) el.focus(); }, 100);
-  }
-
-  function hideLeadForm() {
-    document.getElementById('leadModal').classList.remove('is-open');
-    document.body.style.overflow = '';
-    selectedTiming = null;
-    document.querySelectorAll('.form-pill').forEach(function(p) { p.classList.remove('is-active'); });
-    document.getElementById('pillDate').textContent = 'Своя дата';
-    document.getElementById('monthPicker').style.display = 'none';
-    document.getElementById('formError').classList.remove('visible');
-  }
-
-  function handleModalBackdrop(e) {
-    if (e.target === document.getElementById('leadModal')) hideLeadForm();
-  }
-
-  var MONTHS = ['Январь','Февраль','Март','Апрель','Май','Июнь','Июль','Август','Сентябрь','Октябрь','Ноябрь','Декабрь'];
-
-  function selectTiming(el, value) {
-    selectedTiming = value;
-    document.querySelectorAll('.form-pill').forEach(function(p) { p.classList.remove('is-active'); });
-    el.classList.add('is-active');
-    document.getElementById('monthPicker').style.display = 'none';
-  }
-
-  function selectTimingDate(pillEl) {
-    document.querySelectorAll('.form-pill').forEach(function(p) { p.classList.remove('is-active'); });
-    pillEl.classList.add('is-active');
-    selectedTiming = null;
-    var picker = document.getElementById('monthPicker');
-    if (picker.style.display === 'none') {
-      var grid = document.getElementById('monthGrid');
-      if (!grid.children.length) {
-        MONTHS.forEach(function(m, i) {
-          var btn = document.createElement('button');
-          btn.type = 'button';
-          btn.className = 'month-btn';
-          btn.textContent = m;
-          btn.onclick = function() {
-            selectedTiming = 'Своя дата: ' + m;
-            document.getElementById('pillDate').textContent = m;
-            document.querySelectorAll('.month-btn').forEach(function(b) { b.classList.remove('is-active'); });
-            btn.classList.add('is-active');
-          };
-          grid.appendChild(btn);
-        });
-      }
-      picker.style.display = 'block';
-    } else {
-      picker.style.display = 'none';
-    }
-  }
-
-  function submitLead() {
-    var name  = document.getElementById('fname').value.trim();
-    var phone = document.getElementById('fphone').value.replace(/\D/g, '');
-    var errEl = document.getElementById('formError');
-    var btn   = document.getElementById('submitBtn');
-    errEl.classList.remove('visible');
-    if (name.length < 2) { errEl.textContent = 'Пожалуйста, укажите ваше имя'; errEl.classList.add('visible'); document.getElementById('fname').focus(); return; }
-    if (phone.length < 7) { errEl.textContent = 'Пожалуйста, укажите номер телефона'; errEl.classList.add('visible'); document.getElementById('fphone').focus(); return; }
-    if (!selectedTiming) { errEl.textContent = 'Выберите, когда нужно украшение'; errEl.classList.add('visible'); return; }
-    btn.disabled = true; btn.textContent = 'Открываем...';
-    var fullPhone = '+7' + (phone.startsWith('7') ? phone.slice(1) : phone.startsWith('8') ? phone.slice(1) : phone);
-    var timingMap = { 'В течение недели': 'В течение недели', 'В течение месяца': 'В течение месяца', 'Пока только присматриваюсь': 'Пока только присматриваюсь' };
-    fetch('https://con.neodiamond.kz/api/submit-lead', {
-      method: 'POST', headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ name: name, phone: fullPhone, timing: timingMap[selectedTiming] || selectedTiming, preCapture: true, stageId: 86428934 })
-    })
-    .then(function(r) { return r.ok ? r.json() : {}; })
-    .then(function(data) {
-      var lid = data.leadId ? String(data.leadId) : '';
-      window.location.href = 'https://con.neodiamond.kz' + (lid ? '?lid=' + lid : '');
-    })
-    .catch(function() {
-      window.location.href = 'https://con.neodiamond.kz';
-    });
-  }
 
   function togglePain(btn) {
     var item = btn.closest('.pain-item');
